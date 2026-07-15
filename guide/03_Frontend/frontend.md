@@ -11,41 +11,73 @@ frontend/
 	src/
 		pages/
 			home/
-				index.html        <- Pagina de inicio. Escribes todo tu HTML manual aqui.
-				home.js           <- Logica especifica (ej. carousel, llamadas fetch)
-				home.css          <- Estilos especificos
+				index.html        <- Pagina de inicio B2C. Barra de busqueda, destacados, CTA de "Sube tu finca".
+				home.js
+				home.css
 			catalog/
-				catalog.html      <- Pagina de busqueda y lista de fincas.
-				catalog.js
+				catalog.html      <- Resultados de busqueda. Grilla de tarjetas de fincas + filtros.
+				catalog.js        <- Faceted search: fetch a /api/search con query params.
 				catalog.css
 			property-detail/
-				property.html     <- Plantilla HTML para ver una finca
-				property.js       <- JS lee el ID de la URL y carga los datos del backend
+				property.html     <- Detalle de una finca. Galeria, descripcion, calendario, boton de reservar.
+				property.js       <- Lee el slug/id de la URL y carga los datos del backend.
 				property.css
 			checkout/
-				checkout.html     <- Pagina de pago
+				checkout.html     <- Resumen de reserva + formulario de pago (Wompi).
 				checkout.js
 				checkout.css
+			checkout-success/
+				checkout-success.html  <- Confirmacion post-pago. Numero de reserva y proximos pasos.
+				checkout-success.js
+				checkout-success.css
 			auth/
-				login.html        <- Pagina de inicio de sesion
-				register.html     <- Pagina de registro
-				auth.js
+				login.html        <- Inicio de sesion (Finquero/Agencia).
+				register.html     <- Registro de cuenta nueva.
+				auth.js           <- Logica compartida: fetch a /api/auth/login y /api/auth/register.
 				auth.css
+			host-landing/
+				host-landing.html <- Landing page para Finqueros. CTA para registrar su finca.
+				host-landing.js
+				host-landing.css
+			onboarding/
+				onboarding.html   <- Flujo post-registro. Subida de RUT (KYC) y datos de la finca inicial.
+				onboarding.js     <- Fetch a /api/kyc/upload y /api/properties.
+				onboarding.css
+			error/
+				error.html        <- Pagina de error generica (404, 403, 500). Muestra codigo y mensaje.
+				error.js          <- Lee el codigo de error de los query params de la URL.
+				error.css
+			my-bookings/
+				my-bookings.html  <- Historial de reservas del Turista (solo acceso autenticado).
+				my-bookings.js    <- Fetch a GET /api/bookings.
+				my-bookings.css
 			dashboard/
-				dashboard.html    <- Panel del finquero
-				dashboard.js
+				dashboard.html    <- Panel home del Finquero. Metricas resumidas e ingresos.
+				dashboard.js      <- Fetch a GET /api/dashboard/metrics.
 				dashboard.css
-		components/               <- Opcional: Snippets de codigo HTML para reutilizar (Nav/Footer)
-			navbar.js             <- Script simple para inyectar la barra superior en cada HTML
+			dashboard-properties/
+				dashboard-properties.html  <- Gestion de fincas del Finquero. CRUD de propiedades.
+				dashboard-properties.js
+				dashboard-properties.css
+			dashboard-calendar/
+				dashboard-calendar.html    <- Calendario de disponibilidad. Bloquear/desbloquear fechas.
+				dashboard-calendar.js      <- Fetch a /api/properties/{id}/availability.
+				dashboard-calendar.css
+			dashboard-bookings/
+				dashboard-bookings.html    <- Lista de reservas recibidas. Aprobar o cancelar cada una.
+				dashboard-bookings.js      <- Fetch a PATCH /api/bookings/{id}/status.
+				dashboard-bookings.css
+		components/               <- Snippets reutilizables (Nav y Footer comunes a todas las paginas)
+			navbar.js             <- Inyecta la barra de navegacion en el <body> de cada HTML.
 			footer.js
 		services/                 <- Funciones para llamar al backend Java
-			api.js                <- fetch con manejo de errores y tokens JWT
+			api.js                <- Wrapper fetch: manejo de errores, refresco de JWT y headers.
 		utils/
-			formatters.js         <- Formatear precios
+			formatters.js         <- Formatear precios en COP, fechas, etc.
 		styles/
-			global.css            <- Reset CSS, tipografia, nav y footer
-			tokens.css            <- Design tokens (colores, sombras)
-	vite.config.js                <- Configurado en modo Multi-Page App (MPA)
+			global.css            <- Reset CSS, tipografia base, estilos de Nav y Footer.
+			tokens.css            <- Design tokens: colores, sombras, espaciado, tipografia.
+	vite.config.js                <- Configurado en modo Multi-Page App (MPA). Un entry point por HTML.
 	package.json
 ```
 

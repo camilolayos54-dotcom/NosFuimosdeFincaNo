@@ -103,6 +103,99 @@ billing/
 			MoneyUtils.java            <- Helpers para convertir centavos <-> pesos COP
 		filter/
 			JwtAuthenticationFilter.java  <- Intercepta cada request, valida JWT, setea SecurityContext
+		scheduler/
+			CancelExpiredBookingsJob.java    <- @Scheduled: cada hora cancela PENDING con mas de 24h
+			SendPreCheckinRemindersJob.java  <- @Scheduled: diario 14:00 COT, envia recordatorio WhatsApp
+		event/
+			BookingEventPayload.java     <- POJO compartido para los eventos de booking
+			BookingEventDispatcher.java  <- Enruta el evento al NotificationService
+	iam/
+		controllers/
+			AuthController.java        <- POST /api/auth/register, /login, /refresh, /logout
+			UserProfileController.java <- GET/PATCH /api/users/me
+			KycController.java         <- POST /api/kyc/upload
+			PasswordResetController.java  <- POST /api/auth/forgot-password, /api/auth/reset-password
+		services/
+			AuthService.java           <- Logica de registro, login, generacion de JWT
+			JwtService.java            <- Genera y valida AccessToken + RefreshToken
+			UserService.java           <- CRUD de perfil de usuario
+			PasswordResetService.java  <- Genera y valida token de reset, envia correo
+			EmailVerificationService.java  <- Doble opt-in: genera token, envia correo, valida clic
+			KycService.java            <- Subida de RUT a S3, actualiza kyc_status en BD
+			RateLimitService.java      <- Contador de intentos fallidos (Redis o en memoria)
+		models/
+			User.java                  <- Entidad JPA
+			RefreshToken.java          <- Entidad JPA
+			EmailVerificationToken.java  <- Entidad JPA
+			PasswordResetToken.java    <- Entidad JPA
+			UserRole.java              <- Enum: TOURIST, AGENCY_USER, OWNER_API
+			KycStatus.java             <- Enum: PENDING, VERIFIED, REJECTED
+			LoginRequest.java          <- Record: email, password
+			RegisterRequest.java       <- Record: email, password, fullName, phoneNumber, role
+			ForgotPasswordRequest.java <- Record: email
+			ResetPasswordRequest.java  <- Record: token, newPassword
+			ChangePasswordRequest.java <- Record: currentPassword, newPassword
+			AuthResponse.java          <- Record: accessToken, refreshToken, userRole
+			UserProfileDTO.java        <- Respuesta publica del perfil
+			KycUploadResponse.java     <- Record: kycStatus, message
+		repositories/
+			UserRepository.java        <- extends JpaRepository<User, UUID>
+			RefreshTokenRepository.java
+			EmailVerificationTokenRepository.java
+			PasswordResetTokenRepository.java
+	search/
+		controllers/
+			SearchController.java      <- GET /api/search (query params: checkin, checkout, guests, amenities, price)
+		services/
+			SearchService.java         <- Faceted search + algoritmo de cross-selling (soft-match)
+			SearchQueryBuilder.java    <- Construye el SQL dinamicamente con whitelist de sorting
+		models/
+			SearchRequest.java         <- DTO de entrada con todos los filtros
+			SearchResponse.java        <- DTO paginado de salida
+	dashboard/
+		controllers/
+			DashboardController.java   <- GET /api/dashboard/metrics, GET /api/dashboard/macro-calendar
+			ExportController.java      <- POST /api/dashboard/export (genera CSV)
+		services/
+			DashboardService.java      <- Agrega metricas por mes/propiedad con GROUP BY SQL
+			CsvExportService.java      <- Genera CSV con PII masking (ofusca email del turista)
+			MacroCalendarService.java  <- Matriz de disponibilidad de multiples fincas para Agencias
+		models/
+			MetricsResponse.java       <- Array de { month, total }
+			MacroCalendarResponse.java <- Matriz de disponibilidad
+			ExportRequest.java         <- Filtros de fecha para la exportacion
+	calendar/
+		controllers/
+			CalendarController.java    <- GET/POST /api/properties/{id}/availability
+		services/
+			AvailabilityService.java   <- Logica de bloqueo manual de fechas por el finquero
+			SeasonalPricingService.java <- Sobreescribe el precio base en rangos de fechas especificos
+		models/
+			AvailabilityRequest.java
+			AvailabilityResponse.java
+		repositories/
+			PropertyAvailabilityRepository.java
+	reviews/
+		controllers/
+			ReviewController.java      <- POST /api/reviews (1 resena por reserva completada)
+		services/
+			ReviewService.java
+		models/
+			Review.java                <- Entidad JPA (booking_id UNIQUE)
+			CreateReviewRequest.java   <- Record: bookingId, rating (1-5), comment
+			ReviewDTO.java
+		repositories/
+			ReviewRepository.java
+	wishlist/
+		controllers/
+			WishlistController.java    <- POST /api/wishlists (agregar), DELETE /api/wishlists/{id} (quitar)
+		services/
+			WishlistService.java
+		models/
+			Wishlist.java              <- Entidad JPA (UNIQUE user_id + property_id)
+			WishlistDTO.java
+		repositories/
+			WishlistRepository.java
 ```
 
 ### 2.2 Archivo de Configuracion Principal
