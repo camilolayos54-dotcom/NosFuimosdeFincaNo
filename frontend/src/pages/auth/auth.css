@@ -1,10 +1,16 @@
+/* Estructura de la pagina */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body {
+html {
+    width: 100%;
+}
+
+body {
     width: 100%;
     overflow-x: hidden;
 }
@@ -15,27 +21,30 @@ body {
     color: #333;
 }
 
-/* =========================================
-   Navbar Container
-========================================= */
+/* Contenedor de la barra de navegación */
+
 .ctx-c_nav {
     width: 100%;
     background-color: #ffffff;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid #d4d4d4;
+    position: sticky;
+    z-index: 10;
 }
 
 .ctx-nav_bar {
     display: flex;
     align-items: center;
-    max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 5%; /* Relative padding for better mobile/PC scaling */
+    padding: 1rem 5%;
+    /* Relative padding for better mobile/PC scaling */
     gap: 1rem;
 }
 
-/* =========================================
-   Logo
-========================================= */
+
+
+
+/* Logo */
+
 .ctx-c_nav_logo {
     flex: 1;
     display: flex;
@@ -69,7 +78,8 @@ body {
     position: relative;
     font-weight: 500;
     transition: color 0.2s ease;
-    white-space: nowrap; /* Prevents text from breaking into multiple lines */
+    white-space: nowrap;
+    /* Prevents text from breaking into multiple lines */
 }
 
 .ctx-options li:hover {
@@ -159,7 +169,7 @@ body {
 }
 
 .menu-btn:hover {
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .dropdown ul {
@@ -196,6 +206,7 @@ body {
     .ctx-options {
         gap: 1.5rem;
     }
+
     .ctx-nav_bar {
         padding: 1rem 4%;
     }
@@ -204,20 +215,22 @@ body {
 /* Mobile Devices */
 @media screen and (max-width: 768px) {
     .ctx-c_nav_main_options {
-        display: none; /* Hides the center menu on mobile to prevent layout breaking */
+        display: none;
+        /* Hides the center menu on mobile to prevent layout breaking */
     }
-    
+
     .ctx-nav_bar {
         padding: 0.8rem 1.5rem;
     }
-    
+
     .btn-dark {
         padding: 0.4rem 1rem;
         font-size: 0.85rem;
     }
-    
+
     .ctx-c_nav_logo .logo img {
-        height: 35px; /* Scaled down slightly for mobile */
+        height: 35px;
+        /* Scaled down slightly for mobile */
     }
 }
 
@@ -225,7 +238,7 @@ body {
     .ctx-nav_bar {
         padding: 0.8rem 1rem;
     }
-    
+
     .nav-icons {
         gap: 0.5rem;
     }
