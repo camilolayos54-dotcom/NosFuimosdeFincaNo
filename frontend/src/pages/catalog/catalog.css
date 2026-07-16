@@ -1,7 +1,17 @@
 /* =========================================
+   BASE STYLES & RESET
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================================
    CATALOG LAYOUT
 ========================================= */
 body {
+    font-family: 'Inter', sans-serif;
     background-color: #fafafa;
     color: #333;
 }
