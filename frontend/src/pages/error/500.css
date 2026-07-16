@@ -1,0 +1,225 @@
+/* Estilos Base para la página de Error */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #faf8f5; /* Color crema suave del fondo */
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.error-page-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 4rem 5%;
+}
+
+.error-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    width: 100%;
+}
+
+.error-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.error-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #fce8d5;
+    color: #b54b1f;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.error-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #102a1e;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.error-content p {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+}
+
+.error-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.btn-dark {
+    background-color: #1a2f24;
+    color: white;
+    text-decoration: none;
+    padding: 0.9rem 1.8rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.btn-dark:hover {
+    background-color: #101c15;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #1a2f24;
+    text-decoration: none;
+    padding: 0.9rem 1.8rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid #1a2f24;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.btn-outline:hover {
+    background-color: #1a2f24;
+    color: white;
+}
+
+.mobile-icon {
+    display: none; /* Oculto en desktop según diseño */
+}
+
+.error-status {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.avatars {
+    display: flex;
+}
+
+.avatar-placeholder {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #faf8f5;
+    margin-left: -8px;
+}
+.avatar-placeholder:first-child {
+    margin-left: 0;
+}
+
+.error-status span {
+    font-size: 0.9rem;
+    color: #777;
+    font-weight: 500;
+}
+
+.error-code-mobile {
+    display: none;
+}
+
+/* Lado derecho - Imagen */
+.error-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.error-image img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+
+/* =========================================
+   RESPONSIVE (MÓVIL)
+========================================= */
+@media screen and (max-width: 900px) {
+    .error-container {
+        flex-direction: column;
+        gap: 2.5rem;
+        text-align: center;
+    }
+    
+    .error-image {
+        order: -1; /* Poner la imagen arriba */
+        justify-content: center;
+    }
+
+    .error-image img {
+        max-width: 100%;
+    }
+
+    .error-content {
+        align-items: center;
+    }
+
+    .error-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .error-content p {
+        text-align: center;
+    }
+
+    .error-badge {
+        display: none; /* Según diseño móvil */
+    }
+
+    .error-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .btn-dark, .btn-outline {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .mobile-icon {
+        display: inline-block; /* Iconos visibles en móvil */
+    }
+
+    .error-status {
+        display: none; /* Texto "Nuestro equipo..." oculto en móvil */
+    }
+
+    .error-code-mobile {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        color: #888;
+        margin-top: 1rem;
+    }
+}

@@ -1,8 +1,110 @@
 <!DOCTYPE html>
 <html>
+<!doctype html>
+<html lang="en">
+
 <head>
-<title>Nos Fuimos de Finca</title>
+    <title>Nos Fuimos de Finca</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nos Fuimos de Finca - Registro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../components/footer.css">
+    <link rel="stylesheet" href="./register.css">
+    <script src="../../components/footer.js" defer></script>
 </head>
+
 <body>
+    <main class="auth-split">
+        <a href="index.html" class="back-arrow" aria-label="Volver">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15 18-6-6 6-6" />
+            </svg>
+        </a>
+
+        <div class="auth-split-login">
+            <div class="login-form-container">
+                <div class="login-logo">
+                    <img src="/frontend/public/nf_logo_nf.png" alt="Nos Fuimos de Finca">
+                </div>
+
+                <h1 class="login-title">Crea tu cuenta</h1>
+                <p class="login-subtitle">Completa tus datos para comenzar el registro como anfitrión.</p>
+
+                <form action="#" method="POST" class="login-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">NOMBRES</label>
+                            <input type="text" id="firstName" name="firstName" placeholder="Ej. Juan" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">APELLIDOS</label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Ej. Pérez" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="idNumber">CÉDULA</label>
+                        <input type="text" id="idNumber" name="idNumber" placeholder="0000000000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthDate">FECHA DE NACIMIENTO</label>
+                        <input type="date" id="birthDate" name="birthDate" required>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Crear Cuenta <svg
+                            style="display:inline-block; vertical-align:middle; margin-left:5px;" width="18" height="18"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg></button>
+
+                    <div class="auth-redirect">
+                        ¿Ya tienes una cuenta? <a href="login.html">Inicia sesión</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="auth-split-media">
+            <div class="carousel">
+                <img src="/frontend/public/pexels-angelo-2150545840-31840890.jpg" class="carousel-img active"
+                    alt="Destino 1" fetchpriority="high">
+                <img src="/frontend/public/pexels-jean-paul-montanaro-49563862-14510506.jpg" class="carousel-img"
+                    alt="Destino 2" loading="lazy">
+                <img src="/frontend/public/pexels-santiagob-9408324.jpg" class="carousel-img" alt="Destino 3"
+                    loading="lazy">
+            </div>
+
+            <div class="premium-card">
+                <div class="card-content">
+                    <h3 style="color: white; font-size: 1.4rem;">Descubre la magia del campo colombiano</h3>
+                    <p style="color: #eee;">Únete a nuestra red exclusiva de anfitriones y comparte la belleza de tu
+                        propiedad con el mundo.</p>
+
+                    <div class="avatar-stack">
+                        <div class="avatars">
+                            <img src="https://ui-avatars.com/api/?name=1&background=random&color=fff&rounded=true"
+                                alt="Avatar">
+                            <img src="https://ui-avatars.com/api/?name=2&background=random&color=fff&rounded=true"
+                                alt="Avatar">
+                            <img src="https://ui-avatars.com/api/?name=3&background=random&color=fff&rounded=true"
+                                alt="Avatar">
+                        </div>
+                        <span>+500 anfitriones activos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <global-footer></global-footer>
+
+    <script src="register.js" defer></script>
 </body>
+
 </html>

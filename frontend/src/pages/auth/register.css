@@ -217,47 +217,90 @@ body {
     opacity: 1;
 }
 
-/* Glassmorphism Card */
+/* Glassmorphism Card (Dark for Register) */
 .premium-card {
     position: absolute;
     bottom: 2.5rem;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    max-width: 450px;
-    background: rgba(230, 235, 230, 0.9);
+    max-width: 480px;
+    background: rgba(30, 40, 30, 0.75);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 12px;
-    padding: 1.5rem;
+    padding: 1.5rem 2rem;
     display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.card-icon {
-    background-color: #e8863f;
-    padding: 0.6rem;
-    border-radius: 8px;
+.premium-card h3 {
+    margin: 0;
+}
+.premium-card p {
+    margin-bottom: 1rem;
+}
+
+/* Avatar Stack */
+.avatar-stack {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    gap: 1rem;
+    margin-top: 0.5rem;
 }
 
-.card-content h3 {
-    font-size: 1.15rem;
+.avatars {
+    display: flex;
+}
+
+.avatars img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid rgba(30, 40, 30, 0.8);
+    margin-left: -10px;
+}
+
+.avatars img:first-child {
+    margin-left: 0;
+}
+
+.avatar-stack span {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Form Row Grid */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Redirect Link */
+.auth-redirect {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 1rem;
+}
+
+.auth-redirect a {
     font-weight: 700;
     color: #102a1e;
-    margin-bottom: 0.4rem;
+    text-decoration: none;
+    transition: text-decoration 0.2s;
 }
 
-.card-content p {
-    font-size: 0.9rem;
-    color: #444;
-    line-height: 1.4;
+.auth-redirect a:hover {
+    text-decoration: underline;
 }
+
+/* Omit card-icon and old card styles for register */
 
 /* Responsive */
 @media screen and (max-width: 900px) {
@@ -275,4 +318,10 @@ body {
         padding: 2rem 1rem; /* Reducimos el padding lateral y vertical en pantallas pequeñas para dar más espacio al formulario */
     }
     
+    .login-title {
+        font-size: 2rem; /* Título ligeramente más pequeño para evitar desbordes */
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
 }
