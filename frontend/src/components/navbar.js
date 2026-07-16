@@ -96,8 +96,8 @@ class NavBar extends HTMLElement {
                             </svg>
                         </button>
                         <ul>
-                            <li><a href="#">Iniciar Sesion</a></li>
-                            <li><a href="#">Registrarse</a></li>
+                            <li><a href="/frontend/src/pages/auth/login.html">Iniciar Sesion</a></li>
+                            <li><a href="/frontend/src/pages/auth/register.html">Registrarse</a></li>
                         </ul>
                     </div>
                 </div>
