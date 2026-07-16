@@ -36,11 +36,8 @@ body {
     align-items: center;
     margin: 0 auto;
     padding: 1rem 5%;
-    /* Relative padding for better mobile/PC scaling */
     gap: 1rem;
 }
-
-
 
 /* Logo */
 
@@ -51,14 +48,14 @@ body {
 }
 
 .ctx-c_nav_logo .logo img {
-    height: 55px;
+    height: 80px;
     width: auto;
     object-fit: contain;
 }
 
-/* =========================================
-   Main Navigation Links
-========================================= */
+/* Main Navigation Links */
+
+
 .ctx-c_nav_main_options {
     display: flex;
     justify-content: center;
@@ -76,29 +73,25 @@ body {
     cursor: pointer;
     position: relative;
     font-weight: 500;
-    transition: color 0.2s ease;
+    transition: all 0.3s ease;
     white-space: nowrap;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
     /* Prevents text from breaking into multiple lines */
 }
 
 .ctx-options li:hover {
-    color: #111;
+    color: #0d1e16;
+    background-color: rgba(13, 30, 22, 0.05);
+    transform: translateY(-2px);
 }
 
 /* Active State matches the image */
 .ctx-options li.active {
-    color: #111;
+    color: #ffffff;
     font-weight: 600;
-}
-
-.ctx-options li.active::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #111;
+    background-color: #0d1e16;
+    box-shadow: 0 4px 12px rgba(13, 30, 22, 0.2);
 }
 
 /* =========================================
@@ -214,12 +207,39 @@ body {
 /* Mobile Devices */
 @media screen and (max-width: 768px) {
     .ctx-c_nav_main_options {
-        display: none;
-        /* Hides the center menu on mobile to prevent layout breaking */
+        order: 3;
+        flex: 1 1 100%;
+        margin-top: 1rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
+    }
+    
+    /* Scrollbar styling para mobile */
+    .ctx-c_nav_main_options::-webkit-scrollbar {
+        height: 4px;
+    }
+    .ctx-c_nav_main_options::-webkit-scrollbar-thumb {
+        background: #e5e7eb;
+        border-radius: 4px;
+    }
+
+    .ctx-options {
+        gap: 1.5rem;
+        justify-content: flex-start;
+        width: max-content;
+        padding: 0.5rem 1rem 1rem 1rem;
+        margin: 0;
+    }
+
+    .ctx-options li {
+        font-size: 1.15rem;
+        padding: 0.6rem 1.5rem;
     }
 
     .ctx-nav_bar {
         padding: 0.8rem 1.5rem;
+        flex-wrap: wrap;
     }
 
     .btn-dark {
@@ -228,7 +248,7 @@ body {
     }
 
     .ctx-c_nav_logo .logo img {
-        height: 35px;
+        height: 60px;
         /* Scaled down slightly for mobile */
     }
 }
