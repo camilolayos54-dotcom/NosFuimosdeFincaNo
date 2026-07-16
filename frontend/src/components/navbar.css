@@ -5,7 +5,8 @@
     background-color: #ffffff;
     border-bottom: 1px solid #d4d4d4;
     position: sticky;
-    z-index: 10;
+    top: 0; /* Add top: 0 to ensure sticky works correctly if not present */
+    z-index: 100;
 }
 
 .ctx-nav_bar {

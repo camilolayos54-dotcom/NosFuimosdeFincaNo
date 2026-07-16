@@ -1,15 +1,275 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="navbar.js" type="module"></script>
+    <title>Nos Fuimos de Finca - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../components/navbar.css">
+    <link rel="stylesheet" href="../../components/footer.css">
+    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+    <script src="../../components/navbar.js" defer></script>
+    <script src="../../components/footer.js" defer></script>
+    <script src="./home.js" defer></script>
 </head>
-
 <body>
     <nav-bar></nav-bar>
-</body>
 
+    <main class="home-wrapper">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-carousel" id="heroCarousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/frontend/public/pexels-arlin-raf-2160819254-37131300.jpg" alt="Cafetal en Colombia">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/frontend/public/pexels-clodoaldo-franco-2150764283-31316043.jpg" alt="Finca paisaje">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/frontend/public/pexels-santiagob-9408324.jpg" alt="Finca moderna">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/frontend/public/pexels-jean-paul-montanaro-49563862-14510506.jpg" alt="Paisaje verde">
+                    </div>
+                </div>
+                <div class="hero-overlay"></div>
+            </div>
+            
+            <div class="hero-content">
+                <h1 class="hero-title">Descubre el verdadero espíritu<br>de Colombia en lujo rústico</h1>
+                
+                <div class="hero-search-bar" id="searchBar">
+                    <!-- Buscador: Ubicación -->
+                    <div class="search-field" data-dropdown="location-dropdown">
+                        <div class="search-field-content">
+                            <label>UBICACIÓN</label>
+                            <input type="text" placeholder="¿A dónde vas?" readonly>
+                        </div>
+                        <div class="search-dropdown" id="location-dropdown">
+                            <ul class="dropdown-list">
+                                <li>Quindío, Colombia</li>
+                                <li>Antioquia, Colombia</li>
+                                <li>Santander, Colombia</li>
+                                <li>Eje Cafetero</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="search-divider"></div>
+                    
+                    <!-- Buscador: Fechas -->
+                    <div class="search-field" data-dropdown="dates-dropdown">
+                        <div class="search-field-content">
+                            <label>FECHAS</label>
+                            <input type="text" id="date-display" placeholder="Agrega fechas" readonly>
+                        </div>
+                        <div class="search-dropdown dates-dropdown-container" id="dates-dropdown">
+                            <!-- Contenedor para el calendario inline de Flatpickr -->
+                            <input type="text" id="date-picker-inline" style="display: none;">
+                        </div>
+                    </div>
+                    
+                    <div class="search-divider"></div>
+                    
+                    <!-- Buscador: Huéspedes -->
+                    <div class="search-field" data-dropdown="guests-dropdown">
+                        <div class="search-field-content">
+                            <label>HUÉSPEDES</label>
+                            <input type="text" placeholder="¿Cuántos?" readonly>
+                        </div>
+                        <div class="search-dropdown" id="guests-dropdown">
+                            <div class="guest-counter">
+                                <div class="guest-type">
+                                    <strong>Adultos</strong>
+                                    <span>Edad 13+</span>
+                                </div>
+                                <div class="counter-controls">
+                                    <button class="btn-minus">-</button>
+                                    <span>0</span>
+                                    <button class="btn-plus">+</button>
+                                </div>
+                            </div>
+                            <div class="guest-counter">
+                                <div class="guest-type">
+                                    <strong>Niños</strong>
+                                    <span>Edades 2-12</span>
+                                </div>
+                                <div class="counter-controls">
+                                    <button class="btn-minus">-</button>
+                                    <span>0</span>
+                                    <button class="btn-plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Botón Buscar -->
+                    <button class="search-submit-btn" aria-label="Buscar">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <div class="filters-container">
+                <button class="filter-btn active">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>
+                    <span>Filters</span>
+                </button>
+                <div class="filter-divider"></div>
+                <button class="filter-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12c-2-2-2-4-2-4s-2-2-6-2-6 2-6 2-2 2-2 4 2 2 6 2 6-2 6-2 2-2 2-4z"/><path d="M12 2v2"/><path d="M16 3l-1 1"/><path d="M8 3l1 1"/></svg>
+                    <span>Pool</span>
+                </button>
+                <button class="filter-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5a3 3 0 1 0-3-3M19 12a3 3 0 1 0-3-3M5 12a3 3 0 1 0 3-3M12 19a3 3 0 1 0-3-3"/></svg>
+                    <span>Pet Friendly</span>
+                </button>
+                <button class="filter-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+                    <span>High-speed WiFi</span>
+                </button>
+                <button class="filter-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    <span>BBQ Grill</span>
+                </button>
+                <button class="filter-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 14h6v6h-6zM4 14h6v6H4zM14 4h6v6h-6zM4 4h6v6H4z"/></svg>
+                    <span>Air Conditioning</span>
+                </button>
+                <button class="filter-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                    <span>Fireplace</span>
+                </button>
+                <button class="filter-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+                    <span>Mountain Views</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Fincas Catalog Grid -->
+        <section class="fincas-section">
+            <div class="fincas-grid">
+                <!-- Card 1 -->
+                <article class="finca-card">
+                    <div class="finca-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=500&auto=format&fit=crop" alt="Finca El Paraiso">
+                        <button class="favorite-btn" aria-label="Favorite">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="finca-info">
+                        <div class="finca-header">
+                            <h3 class="finca-title">Finca El Paraiso</h3>
+                            <span class="finca-rating"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.9</span>
+                        </div>
+                        <p class="finca-location">Salento, Quindio</p>
+                        <p class="finca-price"><strong>$500.000 COP</strong> / night</p>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="finca-card">
+                    <div class="finca-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?w=500&auto=format&fit=crop" alt="Hacienda Vista Hermosa">
+                        <button class="favorite-btn" aria-label="Favorite">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="finca-info">
+                        <div class="finca-header">
+                            <h3 class="finca-title">Hacienda Vista Hermosa</h3>
+                            <span class="finca-rating"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 5.0</span>
+                        </div>
+                        <p class="finca-location">Filandia, Quindio</p>
+                        <p class="finca-price"><strong>$1.200.000 COP</strong> / night</p>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="finca-card">
+                    <div class="finca-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&auto=format&fit=crop" alt="Cabaña Bosque Nuboso">
+                        <button class="favorite-btn" aria-label="Favorite">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="finca-info">
+                        <div class="finca-header">
+                            <h3 class="finca-title">Cabaña Bosque Nuboso</h3>
+                            <span class="finca-rating"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.8</span>
+                        </div>
+                        <p class="finca-location">Jardín, Antioquia</p>
+                        <p class="finca-price"><strong>$350.000 COP</strong> / night</p>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="finca-card">
+                    <div class="finca-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500&auto=format&fit=crop" alt="Villa Moderna Colonial">
+                        <button class="favorite-btn" aria-label="Favorite">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="finca-info">
+                        <div class="finca-header">
+                            <h3 class="finca-title">Villa Moderna Colonial</h3>
+                            <span class="finca-rating"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.96</span>
+                        </div>
+                        <p class="finca-location">Barichara, Santander</p>
+                        <p class="finca-price"><strong>$800.000 COP</strong> / night</p>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="load-more-container">
+                <button class="btn-load-more">Load more fincas</button>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits-section">
+            <div class="benefits-container">
+                <h2 class="benefits-title">Mira cómo Nos Fuimos de Finca te puede ayudar</h2>
+                <p class="benefits-subtitle">Connecting you with the most exclusive and authentic rural experiences across the Colombian heartland.</p>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
+                        </div>
+                        <h3 class="benefit-title">Todas las propiedades</h3>
+                        <p class="benefit-desc">Con acceso a las mejores fincas en las regiones más exclusivas de Colombia, cubrimos el 97% de la oferta rural del país.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
+                        </div>
+                        <h3 class="benefit-title">Búsqueda exacta</h3>
+                        <p class="benefit-desc">Nuestros filtros avanzados te permiten encontrar la finca con las amenidades específicas que buscas en tiempo récord.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                        </div>
+                        <h3 class="benefit-title">Asesoría Premium</h3>
+                        <p class="benefit-desc">Diseñamos herramientas para que tomes la mejor decisión basada en calidad, precio y experiencias reales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <global-footer></global-footer>
+</body>
 </html>

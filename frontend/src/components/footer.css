@@ -41,7 +41,7 @@
 }
 
 /* Responsive Footer */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
     .global-footer {
         flex-direction: column;
         align-items: flex-start;
