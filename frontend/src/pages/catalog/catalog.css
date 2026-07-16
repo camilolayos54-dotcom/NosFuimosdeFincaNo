@@ -1,1 +1,452 @@
-/* CSS */
+/* =========================================
+   CATALOG LAYOUT
+========================================= */
+body {
+    background-color: #fafafa;
+    color: #333;
+}
+
+.catalog-wrapper {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    padding: 2rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+/* =========================================
+   SIDEBAR (FILTERS)
+========================================= */
+.catalog-sidebar {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.sidebar-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.clear-filters {
+    color: #b05c21;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.clear-filters:hover {
+    text-decoration: underline;
+}
+
+.filter-section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #111;
+}
+
+/* Price Slider Mock */
+.price-slider-track {
+    width: 100%;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    position: relative;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+.price-slider-fill {
+    position: absolute;
+    height: 100%;
+    background: #0f2d21;
+    left: 20%;
+    right: 30%;
+    border-radius: 2px;
+}
+
+.price-slider-handle {
+    width: 16px;
+    height: 16px;
+    background: #0f2d21;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: grab;
+}
+
+.price-slider-handle.left { left: 20%; transform: translate(-50%, -50%); }
+.price-slider-handle.right { left: 70%; transform: translate(-50%, -50%); }
+
+.price-inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.price-input-box {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+
+.price-label {
+    font-size: 0.7rem;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.price-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-top: 0.2rem;
+}
+
+.sidebar-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 0;
+}
+
+/* Custom Checkboxes */
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.custom-checkbox input {
+    display: none;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    background: #fff;
+}
+
+.custom-checkbox input:checked + .checkmark {
+    background-color: #0f2d21;
+    border-color: #0f2d21;
+}
+
+.custom-checkbox input:checked + .checkmark::after {
+    content: "";
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-bottom: 2px;
+}
+
+.show-more-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #b05c21;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 0.5rem;
+}
+
+.btn-apply-filters {
+    background-color: #0f2d21;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-apply-filters:hover {
+    background-color: #0a1e16;
+}
+
+/* =========================================
+   RESULTS AREA
+========================================= */
+.results-header {
+    margin-bottom: 2rem;
+}
+
+.results-title-area h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.5rem;
+}
+
+.results-count {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.results-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.active-filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.active-tag {
+    background: #f0f0f0;
+    border-radius: 20px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.active-tag button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sort-dropdown {
+    font-size: 0.9rem;
+    color: #555;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.sort-dropdown strong {
+    color: #111;
+    font-weight: 600;
+}
+
+/* =========================================
+   FINCAS GRID & CARDS
+========================================= */
+.fincas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.finca-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    cursor: pointer;
+}
+
+.finca-img-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.finca-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.finca-card:hover .finca-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.img-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: white;
+    color: #111;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    z-index: 5;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.favorite-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.2s;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.favorite-btn:hover {
+    transform: scale(1.1);
+}
+
+.finca-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.finca-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.finca-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #111;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.finca-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #111;
+}
+
+.finca-location {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.finca-amenities-text {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 0.2rem;
+    margin-bottom: 0.4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.finca-price {
+    font-size: 0.95rem;
+    color: #b05c21;
+}
+.finca-price strong {
+    color: #111;
+    font-weight: 600;
+}
+
+/* =========================================
+   BOTTOM ACTIONS
+========================================= */
+.loading-more {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.spinner-icon {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #ddd;
+    border-top-color: #b05c21;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-more p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.map-button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.btn-map {
+    background: transparent;
+    color: #111;
+    border: 1.5px solid #111;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-map:hover {
+    background: #f0f0f0;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media screen and (max-width: 992px) {
+    .catalog-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .catalog-sidebar {
+        display: none; /* In a real app, this becomes a modal/drawer */
+    }
+}

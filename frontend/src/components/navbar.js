@@ -17,7 +17,7 @@ class NavBar extends HTMLElement {
                                 <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                                 <polyline points="9 22 9 12 15 12 15 22" />
                             </svg>
-                            Inicio
+                            <span data-i18n="nav.home">Inicio</span>
                         </a>
                     </li>
                     <li>
@@ -30,7 +30,7 @@ class NavBar extends HTMLElement {
                                 <path d="m12 15-3 5" />
                                 <path d="m12 15 3 5" />
                             </svg>
-                            Fincas
+                            <span data-i18n="nav.fincas">Fincas</span>
                         </a>
                     </li>
                     <li>
@@ -40,7 +40,7 @@ class NavBar extends HTMLElement {
                                 <path
                                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                             </svg>
-                            Contacto
+                            <span data-i18n="nav.contact">Contacto</span>
                         </a>
                     </li>
                     <li>
@@ -54,13 +54,13 @@ class NavBar extends HTMLElement {
                                 <path d="M14 13h4" />
                                 <path d="M14 17h4" />
                             </svg>
-                            Contrato
+                            <span data-i18n="nav.contract">Contrato</span>
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="ctx-c_nav_actions">
-                <button class="btn btn-dark">Publicar</button>
+                <button class="btn btn-dark" data-i18n="nav.publish">Publicar</button>
                 <div class="nav-icons">
                     <!-- Botón de Modo Oscuro/Claro -->
                     <button class="theme-toggle menu-btn" aria-label="Cambiar tema">
@@ -82,8 +82,8 @@ class NavBar extends HTMLElement {
                             </svg>
                         </button>
                         <ul>
-                            <li><a href="#">Español</a></li>
-                            <li><a href="#">English</a></li>
+                            <li><a href="#" class="lang-selector" data-lang="es">Español</a></li>
+                            <li><a href="#" class="lang-selector" data-lang="en">English</a></li>
                         </ul>
                     </div>
                     <div class="dropdown">
@@ -96,8 +96,8 @@ class NavBar extends HTMLElement {
                             </svg>
                         </button>
                         <ul>
-                            <li><a href="/frontend/src/pages/auth/login.html">Iniciar Sesion</a></li>
-                            <li><a href="/frontend/src/pages/auth/register.html">Registrarse</a></li>
+                            <li><a href="/frontend/src/pages/auth/login.html" data-i18n="nav.login">Iniciar Sesion</a></li>
+                            <li><a href="/frontend/src/pages/auth/register.html" data-i18n="nav.register">Registrarse</a></li>
                         </ul>
                     </div>
                 </div>

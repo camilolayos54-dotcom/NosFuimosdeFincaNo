@@ -1,8 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<title>Nos Fuimos de Finca</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Nos Fuimos de Finca</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../components/navbar.css">
+    <link rel="stylesheet" href="../../components/search-navbar.css">
+    <link rel="stylesheet" href="../../components/footer.css">
+    <link rel="stylesheet" href="./catalog.css">
+    <script src="../../js/i18n.js"></script>
+    <script src="../../components/search-navbar.js" defer></script>
+    <script src="../../components/catalog-filters.js" defer></script>
+    <script src="../../components/footer.js" defer></script>
+    <script src="./catalog.js" defer></script>
 </head>
 <body>
+    <search-navbar></search-navbar>
+
+    <main class="catalog-wrapper">
+        <!-- BARRA LATERAL (FILTROS) -->
+        <catalog-filters></catalog-filters>
+
+        <!-- RESULTADOS -->
+        <section class="catalog-results">
+            <div class="results-header">
+                <div class="results-title-area">
+                    <h1 data-i18n="catalog.resultsTitle">Fincas en Antioquia</h1>
+                    <p class="results-count" data-i18n="catalog.resultsCount">+200 alojamientos encontrados</p>
+                </div>
+                
+                <div class="results-controls">
+                    <div class="active-filters">
+                        <span class="active-tag"><span data-i18n="home.filterPool">Piscina</span> <button aria-label="Remove">×</button></span>
+                        <span class="active-tag"><span data-i18n="home.filterBbq">Zona BBQ</span> <button aria-label="Remove">×</button></span>
+                    </div>
+                    
+                    <div class="sort-dropdown">
+                        <span data-i18n="catalog.sortBy">Ordenar por:</span> <strong>Recomendados</strong> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fincas-grid">
+                <!-- Card 1 -->
+                <article class="finca-card">
+                    <div class="finca-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500&auto=format&fit=crop" alt="Hacienda Venecia">
+                        <span class="img-badge" data-i18n="catalog.guestFavorite">Huésped Favorito</span>
+                        <button class="favorite-btn" aria-label="Favorite">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="finca-info">
+                        <div class="finca-header">
+                            <h3 class="finca-title">Hacienda Venecia</h3>
+                            <span class="finca-rating"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.96</span>
+                        </div>
+                        <p class="finca-location">Jericó, Antioquia</p>
+                        <p class="finca-amenities-text">Vistas a la montaña • Piscina infinita • ...</p>
+                        <p class="finca-price"><strong>$350.000 COP</strong> <span data-i18n="home.perNight">noche</span></p>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="finca-card">
+                    <div class="finca-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=500&auto=format&fit=crop" alt="Cabaña del Bosque">
+                        <button class="favorite-btn" aria-label="Favorite">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="finca-info">
+                        <div class="finca-header">
+                            <h3 class="finca-title">Cabaña del Bosque</h3>
+                            <span class="finca-rating"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.85</span>
+                        </div>
+                        <p class="finca-location">Santa Elena, Antioquia</p>
+                        <p class="finca-amenities-text">Inmersión en la naturaleza • Chimenea • ...</p>
+                        <p class="finca-price"><strong>$420.000 COP</strong> <span data-i18n="home.perNight">noche</span></p>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="finca-card">
+                    <div class="finca-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&auto=format&fit=crop" alt="Villa Sol Naciente">
+                        <button class="favorite-btn" aria-label="Favorite">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="finca-info">
+                        <div class="finca-header">
+                            <h3 class="finca-title">Villa Sol Naciente</h3>
+                            <span class="finca-rating"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 5.0</span>
+                        </div>
+                        <p class="finca-location">Sopetrán, Antioquia</p>
+                        <p class="finca-amenities-text">Clima cálido • Piscina privada gigante • ...</p>
+                        <p class="finca-price"><strong>$600.000 COP</strong> <span data-i18n="home.perNight">noche</span></p>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="finca-card">
+                    <div class="finca-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500&auto=format&fit=crop" alt="Domo Cielo Estrellado">
+                        <button class="favorite-btn" aria-label="Favorite">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="finca-info">
+                        <div class="finca-header">
+                            <h3 class="finca-title">Domo Cielo Estrellado</h3>
+                            <span class="finca-rating"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.92</span>
+                        </div>
+                        <p class="finca-location">Guatapé, Antioquia</p>
+                        <p class="finca-amenities-text">Glamping premium • Vista a la represa • ...</p>
+                        <p class="finca-price"><strong>$280.000 COP</strong> <span data-i18n="home.perNight">noche</span></p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="loading-more">
+                <div class="spinner-icon"></div>
+                <p data-i18n="catalog.loadingMore">Cargando más fincas...</p>
+            </div>
+
+            <div class="map-button-container">
+                <button class="btn-map" data-i18n="catalog.viewMap">Ver mapa completo</button>
+            </div>
+        </section>
+    </main>
+
+    <global-footer></global-footer>
 </body>
 </html>

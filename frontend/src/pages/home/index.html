@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+    <script src="../../js/i18n.js"></script>
     <script src="../../components/navbar.js" defer></script>
     <script src="../../components/footer.js" defer></script>
     <script src="./home.js" defer></script>
@@ -40,14 +41,14 @@
             </div>
             
             <div class="hero-content">
-                <h1 class="hero-title">Descubre el verdadero espíritu<br>de Colombia en lujo rústico</h1>
+                <h1 class="hero-title" data-i18n="home.heroTitle">Descubre el verdadero espíritu<br>de Colombia en lujo rústico</h1>
                 
                 <div class="hero-search-bar" id="searchBar">
                     <!-- Buscador: Ubicación -->
                     <div class="search-field" data-dropdown="location-dropdown">
                         <div class="search-field-content">
-                            <label>UBICACIÓN</label>
-                            <input type="text" placeholder="¿A dónde vas?" readonly>
+                            <label data-i18n="home.searchLocationLabel">UBICACIÓN</label>
+                            <input type="text" placeholder="¿A dónde vas?" data-i18n="home.searchLocationPlaceholder" readonly>
                         </div>
                         <div class="search-dropdown" id="location-dropdown">
                             <ul class="dropdown-list">
@@ -64,8 +65,8 @@
                     <!-- Buscador: Fechas -->
                     <div class="search-field" data-dropdown="dates-dropdown">
                         <div class="search-field-content">
-                            <label>FECHAS</label>
-                            <input type="text" id="date-display" placeholder="Agrega fechas" readonly>
+                            <label data-i18n="home.searchDatesLabel">FECHAS</label>
+                            <input type="text" id="date-display" placeholder="Agrega fechas" data-i18n="home.searchDatesPlaceholder" readonly>
                         </div>
                         <div class="search-dropdown dates-dropdown-container" id="dates-dropdown">
                             <!-- Contenedor para el calendario inline de Flatpickr -->
@@ -78,8 +79,8 @@
                     <!-- Buscador: Huéspedes -->
                     <div class="search-field" data-dropdown="guests-dropdown">
                         <div class="search-field-content">
-                            <label>HUÉSPEDES</label>
-                            <input type="text" placeholder="¿Cuántos?" readonly>
+                            <label data-i18n="home.searchGuestsLabel">HUÉSPEDES</label>
+                            <input type="text" placeholder="¿Cuántos?" data-i18n="home.searchGuestsPlaceholder" readonly>
                         </div>
                         <div class="search-dropdown" id="guests-dropdown">
                             <div class="guest-counter">
@@ -120,36 +121,36 @@
             <div class="filters-container">
                 <button class="filter-btn active">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>
-                    <span>Filters</span>
+                    <span data-i18n="home.filtersBtn">Filtros</span>
                 </button>
                 <div class="filter-divider"></div>
                 <button class="filter-item">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12c-2-2-2-4-2-4s-2-2-6-2-6 2-6 2-2 2-2 4 2 2 6 2 6-2 6-2 2-2 2-4z"/><path d="M12 2v2"/><path d="M16 3l-1 1"/><path d="M8 3l1 1"/></svg>
-                    <span>Pool</span>
+                    <span data-i18n="home.filterPool">Piscina</span>
                 </button>
                 <button class="filter-item">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5a3 3 0 1 0-3-3M19 12a3 3 0 1 0-3-3M5 12a3 3 0 1 0 3-3M12 19a3 3 0 1 0-3-3"/></svg>
-                    <span>Pet Friendly</span>
+                    <span data-i18n="home.filterPet">Mascotas permitidas</span>
                 </button>
                 <button class="filter-item">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
-                    <span>High-speed WiFi</span>
+                    <span data-i18n="home.filterWifi">WiFi rápido</span>
                 </button>
                 <button class="filter-item">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                    <span>BBQ Grill</span>
+                    <span data-i18n="home.filterBbq">Zona BBQ</span>
                 </button>
                 <button class="filter-item">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 14h6v6h-6zM4 14h6v6H4zM14 4h6v6h-6zM4 4h6v6H4z"/></svg>
-                    <span>Air Conditioning</span>
+                    <span data-i18n="home.filterAc">Aire Acond.</span>
                 </button>
                 <button class="filter-item">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
-                    <span>Fireplace</span>
+                    <span data-i18n="home.filterFireplace">Chimenea</span>
                 </button>
                 <button class="filter-item">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
-                    <span>Mountain Views</span>
+                    <span data-i18n="home.filterMountain">Vista a la montaña</span>
                 </button>
             </div>
         </section>
@@ -171,7 +172,7 @@
                             <span class="finca-rating"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.9</span>
                         </div>
                         <p class="finca-location">Salento, Quindio</p>
-                        <p class="finca-price"><strong>$500.000 COP</strong> / night</p>
+                        <p class="finca-price"><strong>$500.000 COP</strong> / noche</span></p>
                     </div>
                 </article>
 
@@ -189,7 +190,7 @@
                             <span class="finca-rating"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 5.0</span>
                         </div>
                         <p class="finca-location">Filandia, Quindio</p>
-                        <p class="finca-price"><strong>$1.200.000 COP</strong> / night</p>
+                        <p class="finca-price"><strong>$1.200.000 COP</strong> / noche</span></p>
                     </div>
                 </article>
 
@@ -207,7 +208,7 @@
                             <span class="finca-rating"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.8</span>
                         </div>
                         <p class="finca-location">Jardín, Antioquia</p>
-                        <p class="finca-price"><strong>$350.000 COP</strong> / night</p>
+                        <p class="finca-price"><strong>$350.000 COP</strong> / noche</span></p>
                     </div>
                 </article>
 
@@ -225,45 +226,45 @@
                             <span class="finca-rating"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.96</span>
                         </div>
                         <p class="finca-location">Barichara, Santander</p>
-                        <p class="finca-price"><strong>$800.000 COP</strong> / night</p>
+                        <p class="finca-price"><strong>$800.000 COP</strong> / noche</span></p>
                     </div>
                 </article>
             </div>
             
             <div class="load-more-container">
-                <button class="btn-load-more">Load more fincas</button>
+                <button class="btn-load-more" data-i18n="home.loadMore">Cargar más fincas</button>
             </div>
         </section>
 
         <!-- Benefits Section -->
         <section class="benefits-section">
             <div class="benefits-container">
-                <h2 class="benefits-title">Mira cómo Nos Fuimos de Finca te puede ayudar</h2>
-                <p class="benefits-subtitle">Connecting you with the most exclusive and authentic rural experiences across the Colombian heartland.</p>
+                <h2 class="benefits-title" data-i18n="home.benefitsTitle">Mira cómo Nos Fuimos de Finca te puede ayudar</h2>
+                <p class="benefits-subtitle" data-i18n="home.benefitsSubtitle">Conectándote con las experiencias rurales más exclusivas y auténticas en el corazón de Colombia.</p>
                 
                 <div class="benefits-grid">
                     <div class="benefit-card">
                         <div class="benefit-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
                         </div>
-                        <h3 class="benefit-title">Todas las propiedades</h3>
-                        <p class="benefit-desc">Con acceso a las mejores fincas en las regiones más exclusivas de Colombia, cubrimos el 97% de la oferta rural del país.</p>
+                        <h3 class="benefit-title" data-i18n="home.benefit1Title">Todas las propiedades</h3>
+                        <p class="benefit-desc" data-i18n="home.benefit1Desc">Con acceso a las mejores fincas en las regiones más exclusivas de Colombia, cubrimos el 97% de la oferta rural del país.</p>
                     </div>
                     
                     <div class="benefit-card">
                         <div class="benefit-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
                         </div>
-                        <h3 class="benefit-title">Búsqueda exacta</h3>
-                        <p class="benefit-desc">Nuestros filtros avanzados te permiten encontrar la finca con las amenidades específicas que buscas en tiempo récord.</p>
+                        <h3 class="benefit-title" data-i18n="home.benefit2Title">Búsqueda exacta</h3>
+                        <p class="benefit-desc" data-i18n="home.benefit2Desc">Nuestros filtros avanzados te permiten encontrar la finca con las amenidades específicas que buscas en tiempo récord.</p>
                     </div>
                     
                     <div class="benefit-card">
                         <div class="benefit-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
                         </div>
-                        <h3 class="benefit-title">Asesoría Premium</h3>
-                        <p class="benefit-desc">Diseñamos herramientas para que tomes la mejor decisión basada en calidad, precio y experiencias reales.</p>
+                        <h3 class="benefit-title" data-i18n="home.benefit3Title">Asesoría Premium</h3>
+                        <p class="benefit-desc" data-i18n="home.benefit3Desc">Diseñamos herramientas para que tomes la mejor decisión basada en calidad, precio y experiencias reales.</p>
                     </div>
                 </div>
             </div>

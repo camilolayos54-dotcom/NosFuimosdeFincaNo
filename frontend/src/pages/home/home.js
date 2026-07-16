@@ -131,17 +131,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const dateDropdown = document.getElementById('dates-dropdown');
 
     if (document.getElementById('date-picker-inline')) {
+        const currentLang = localStorage.getItem('lang') || 'es';
+        
         flatpickr("#date-picker-inline", {
             inline: true,
             mode: "range",
             minDate: "today",
             showMonths: window.innerWidth > 768 ? 2 : 1,
-            locale: "es", // Español
+            locale: currentLang === 'en' ? 'default' : 'es', // flatpickr defaults to english
             onChange: function(selectedDates, dateStr, instance) {
                 if (selectedDates.length === 2) {
                     // Formatear fechas seleccionadas
-                    const start = selectedDates[0].toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
-                    const end = selectedDates[1].toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
+                    const localeCode = currentLang === 'en' ? 'en-US' : 'es-ES';
+                    const start = selectedDates[0].toLocaleDateString(localeCode, { day: 'numeric', month: 'short' });
+                    const end = selectedDates[1].toLocaleDateString(localeCode, { day: 'numeric', month: 'short' });
                     dateDisplay.value = `${start} - ${end}`;
                     
                     // Pequeño delay antes de cerrar el dropdown para dar feedback visual
@@ -149,7 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         closeAllDropdowns();
                     }, 400);
                 } else if (selectedDates.length === 1) {
-                    const start = selectedDates[0].toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
+                    const localeCode = currentLang === 'en' ? 'en-US' : 'es-ES';
+                    const start = selectedDates[0].toLocaleDateString(localeCode, { day: 'numeric', month: 'short' });
                     dateDisplay.value = `${start} - ...`;
                 }
             }

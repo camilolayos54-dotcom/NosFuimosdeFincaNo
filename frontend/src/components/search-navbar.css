@@ -1,43 +1,50 @@
-/* Search Navbar Component Styles */
-.search-navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2%; /* Expandido horizontalmente de 5% a 2% */
-    background-color: #fff;
-    border-bottom: 1px solid #eaeaea;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+/* Search Navbar Specific Styles */
+/* Hereda todo de navbar.css, aquí solo estilizamos la barra de búsqueda central */
+
+.ctx-nav_bar.search-variant {
+    justify-content: flex-start;
+    gap: 0;
 }
 
-.search-nav-left {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    flex: 1; /* Permite que el contenedor izquierdo crezca */
-    margin-right: 2rem; /* Espacio antes de los enlaces de navegación */
+/* Evitar que el contenedor del logo absorba todo el espacio (comportamiento de navbar.css) */
+.ctx-nav_bar.search-variant .ctx-c_nav_logo {
+    flex: none;
+    margin-right: 2rem;
 }
 
-.search-nav-logo img {
-    height: 45px;
-    width: auto;
-    object-fit: contain;
+.ctx-nav_bar.search-variant .search-variant-links {
+    margin-left: 3rem; /* Empuja las opciones e iconos todo a la derecha */
+}
+
+.ctx-c_nav_search {
+    flex: 1; /* Esto forzará que el buscador tome TODO el espacio central restante */
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .search-nav-input-wrapper {
     display: flex;
     align-items: center;
     background-color: #f5f5f5;
-    padding: 0.7rem 1rem;
-    border-radius: 8px;
-    width: 100%; /* Ocupa todo el ancho disponible */
-    max-width: 700px; /* Limita hasta donde dibujó el usuario aprox */
+    padding: 0.75rem 1.2rem; /* Más espaciosa */
+    border-radius: 40px;
+    width: 100%;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.search-nav-input-wrapper:focus-within {
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border: 1px solid #eaeaea;
 }
 
 .search-nav-input-wrapper svg {
     color: #666;
-    margin-right: 0.7rem;
+    margin-right: 0.8rem;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
 }
 
 .search-nav-input-wrapper input {
@@ -46,7 +53,7 @@
     outline: none;
     width: 100%;
     font-family: inherit;
-    font-size: 0.95rem;
+    font-size: 1rem; /* Texto más grande */
     color: #333;
 }
 
@@ -54,105 +61,32 @@
     color: #999;
 }
 
-.search-nav-right {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+/* En móviles, ocultamos los enlaces de texto para dar espacio al buscador */
+@media screen and (max-width: 992px) {
+    .search-variant-links {
+        display: none !important; /* Ocultamos Inicio, Fincas... */
+    }
 }
 
-.search-nav-links {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.search-nav-links a {
-    text-decoration: none;
-    color: #444;
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: color 0.2s;
-}
-
-.search-nav-links a:hover {
-    color: #1a2f24;
-}
-
-.search-nav-btn {
-    background-color: #1a2f24;
-    color: white;
-    border: none;
-    padding: 0.7rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    font-family: inherit;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.search-nav-btn:hover {
-    background-color: #101c15;
-}
-
-.mobile-menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: #1a2f24;
-    cursor: pointer;
-    padding: 0.5rem;
-}
-
-.mobile-search {
-    display: none; /* Oculto en escritorio */
-}
-
-@media screen and (max-width: 900px) {
-    .search-navbar {
+@media screen and (max-width: 768px) {
+    .ctx-c_nav_search {
+        order: 2; /* Logo(1), Search(2), Actions(3) */
+        margin: 0 0.5rem;
+    }
+    
+    .ctx-nav_bar.search-variant {
+        flex-wrap: wrap;
         justify-content: space-between;
-        background-color: transparent;
-        border-bottom: none;
-        position: relative;
     }
     
-    .mobile-menu-toggle {
-        display: block;
-    }
-
-    .desktop-search {
-        display: none; /* Oculta el buscador principal en el top bar en móviles */
-    }
-
-    .search-nav-right {
-        display: none; 
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #faf8f5;
-        flex-direction: column;
-        align-items: center;
-        padding: 1.5rem 5%; /* Añadido padding lateral para que el buscador no toque los bordes */
-        border-bottom: 1px solid #eaeaea;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
-    }
-
-    .search-nav-right.mobile-open {
-        display: flex;
+    .ctx-c_nav_search {
+        flex: 1 1 100%;
+        max-width: 100%;
+        order: 3;
+        margin: 1rem 0 0 0;
     }
     
-    .mobile-search {
-        display: flex; /* Muestra el buscador móvil dentro del dropdown */
-        width: 100%;
-        margin-bottom: 1.5rem;
-    }
-
-    .search-nav-links {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        gap: 1.5rem;
-        margin-bottom: 1.5rem;
+    .ctx-c_nav_actions {
+        order: 2;
     }
 }
-
