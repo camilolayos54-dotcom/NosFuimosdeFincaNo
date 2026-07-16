@@ -76,9 +76,8 @@
     box-shadow: 0 4px 12px rgba(13, 30, 22, 0.2);
 }
 
-/* =========================================
-   Right Actions (Button & Icons)
-========================================= */
+/* Right Actions (Button & Icons) */
+
 .ctx-c_nav_actions {
     flex: 1;
     display: flex;
@@ -88,6 +87,7 @@
 }
 
 /* Publicar Button */
+
 .btn-dark {
     background-color: #0d1e16;
     color: #ffffff;
@@ -161,7 +161,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     min-width: 150px;
     z-index: 10;
-    
+
     visibility: hidden;
     opacity: 0;
     transform: translateY(10px);
@@ -196,9 +196,7 @@
     background-color: #f9f9f9;
 }
 
-/* =========================================
-   Responsive Design (Media Queries)
-========================================= */
+/*  Responsive Design (Media Queries) */
 
 /* Tablet & Smaller Screens */
 @media screen and (max-width: 992px) {
@@ -221,11 +219,12 @@
         -webkit-overflow-scrolling: touch;
         justify-content: flex-start;
     }
-    
+
     /* Scrollbar styling para mobile */
     .ctx-c_nav_main_options::-webkit-scrollbar {
         height: 4px;
     }
+
     .ctx-c_nav_main_options::-webkit-scrollbar-thumb {
         background: #e5e7eb;
         border-radius: 4px;
