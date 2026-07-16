@@ -93,6 +93,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* =========================================
+       SCROLL NAVBAR LOGIC
+    ========================================= */
+    const navBar = document.querySelector('nav-bar');
+    const heroSection = document.querySelector('.hero-section');
+    
+    if (navBar) {
+        window.addEventListener('scroll', () => {
+            // Calculamos la altura dinámica del hero (funciona perfecto en móvil donde es 60vh y en desktop donde es 100vh)
+            const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
+            // Restamos unos 80px (el alto de la barra) para que el cambio ocurra justo antes de tapar el dashboard
+            const threshold = heroHeight - 80;
+            
+            if (window.scrollY > threshold) {
+                navBar.classList.add('scrolled');
+            } else {
+                navBar.classList.remove('scrolled');
+            }
+        });
+    }
+
+    /* =========================================
+       PREVENT DROPDOWN BUBBLING BUG
+    ========================================= */
+    // Prevenir que clics dentro de cualquier dropdown lo cierren accidentalmente
+    const allDropdowns = document.querySelectorAll('.search-dropdown');
+    allDropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    });
+
+    /* =========================================
        FLATPICKR CALENDAR LOGIC
     ========================================= */
     const dateDisplay = document.getElementById('date-display');
@@ -122,12 +154,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
-        
-        // Prevenir que clics dentro del calendario cierren el dropdown
-        if (dateDropdown) {
-            dateDropdown.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
-        }
     }
 });

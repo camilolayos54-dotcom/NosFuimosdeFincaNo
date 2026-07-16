@@ -20,7 +20,7 @@ body {
 .hero-section {
     position: relative;
     width: 100%;
-    height: calc(100vh - 81px); /* Resta la altura del navbar aprox */
+    height: 100vh; /* Extendemos hasta arriba del todo */
     min-height: 500px;
     margin: 0;
     border-radius: 0;
@@ -574,12 +574,17 @@ body {
     .hero-section {
         width: 100%;
         border-radius: 0;
-        height: 60vh;
+        min-height: 100vh;
+        height: auto;
+        padding-top: 160px; /* Evita que el texto choque con el nav en móviles */
+        padding-bottom: 2rem;
+        justify-content: center;
     }
 
     .hero-title {
         font-size: 2.2rem;
         margin-bottom: 2rem;
+        margin-top: 2rem;
     }
 
     .hero-search-bar {
@@ -634,4 +639,122 @@ body {
     .benefits-title {
         font-size: 2rem;
     }
+}
+
+/* =========================================
+   TRANSPARENT NAVBAR (Base - Al tope)
+========================================= */
+nav-bar .ctx-c_nav {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    z-index: 1000 !important;
+    transition: background-color 0.3s ease, border-bottom 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav-bar .ctx-c_nav:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+nav-bar .ctx-options li a {
+    color: #ffffff !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7) !important;
+    transition: color 0.3s ease;
+}
+
+nav-bar .ctx-options li a:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+nav-bar .ctx-options li.active a {
+    background-color: #ffffff !important;
+    color: #111 !important;
+    text-shadow: none !important;
+}
+
+nav-bar .menu-btn {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease;
+}
+
+nav-bar .menu-btn:hover {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+nav-bar .dropdown-trigger {
+    color: #ffffff !important;
+}
+
+nav-bar .btn-dark {
+    background-color: #ffffff !important;
+    color: #111 !important;
+    border: 1px solid transparent !important;
+    transition: all 0.3s ease;
+}
+
+nav-bar .btn-dark:hover {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* =========================================
+   SOLID NAVBAR (Al hacer scroll)
+========================================= */
+nav-bar.scrolled .ctx-c_nav {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #d4d4d4 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+}
+
+nav-bar.scrolled .ctx-c_nav:hover {
+    background-color: #ffffff !important;
+}
+
+nav-bar.scrolled .ctx-options li a {
+    color: #666666 !important;
+    text-shadow: none !important;
+}
+
+nav-bar.scrolled .ctx-options li a:hover {
+    color: #0d1e16 !important;
+    background-color: rgba(13, 30, 22, 0.05) !important;
+}
+
+nav-bar.scrolled .ctx-options li.active a {
+    background-color: #0d1e16 !important;
+    color: #ffffff !important;
+}
+
+nav-bar.scrolled .menu-btn {
+    background-color: #f3f4f6 !important;
+    border: 1px solid #e5e7eb !important;
+    color: #555 !important;
+}
+
+nav-bar.scrolled .menu-btn:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+    background-color: #f3f4f6 !important;
+}
+
+nav-bar.scrolled .dropdown-trigger {
+    color: #555 !important;
+}
+
+nav-bar.scrolled .dropdown-trigger:hover {
+    color: #111 !important;
+}
+
+nav-bar.scrolled .btn-dark {
+    background-color: #0d1e16 !important;
+    color: #ffffff !important;
+}
+
+nav-bar.scrolled .btn-dark:hover {
+    background-color: #1a3c2c !important;
 }
