@@ -7,17 +7,71 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Nos Fuimos de Finca - Inicio de Sesión</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../components/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./login.css">
-    <script src="../../components/navbar.js" defer></script>
 </head>
 
 <body>
-    <nav-bar></nav-bar>
-    <div class="hero-section">
-        <h1>Hero Section</h1>
-    </div>
+    <main class="auth-split">
+        <!-- Botón Volver -->
+        <a href="index.html" class="back-arrow" aria-label="Volver">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </a>
+        
+        <div class="auth-split-login">
+            <div class="login-form-container">
+                <div class="login-logo">
+                    <img src="/frontend/public/nf_logo_nf.png" alt="Nos Fuimos de Finca">
+                </div>
+                
+                <h1 class="login-title">BIENVENIDO DE<br>NUEVO</h1>
+                <p class="login-subtitle">Ingresa a tu cuenta de administrador</p>
+                
+                <form action="#" method="POST" class="login-form">
+                    <div class="form-group">
+                        <label for="email">CORREO ELECTRÓNICO</label>
+                        <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" autocomplete="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">CONTRASEÑA</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="password" name="password" placeholder="********" autocomplete="current-password" required>
+                            <button type="button" class="toggle-password" aria-label="Mostrar contraseña">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="forgot-password">OLVIDÉ MI CONTRASEÑA</a>
+                    
+                    <button type="submit" class="btn-submit">INGRESAR</button>
+                </form>
+                
+                <p class="login-footer">© 2024 NOS FUIMOS DE FINCA — PANEL DE CONTROL</p>
+            </div>
+        </div>
+        
+        <div class="auth-split-media">
+            <div class="carousel">
+                <img src="/frontend/public/pexels-angelo-2150545840-31840890.jpg" class="carousel-img active" alt="Destino 1" fetchpriority="high">
+                <img src="/frontend/public/pexels-jean-paul-montanaro-49563862-14510506.jpg" class="carousel-img" alt="Destino 2" loading="lazy">
+                <img src="/frontend/public/pexels-santiagob-9408324.jpg" class="carousel-img" alt="Destino 3" loading="lazy">
+            </div>
+            
+            <div class="premium-card">
+                <div class="card-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="card-content">
+                    <h3>Destinos Premium</h3>
+                    <p>Gestiona las experiencias rurales más exclusivas de Colombia desde tu centro de mando administrativo.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="login.js" defer></script>
 </body>
 
 </html>
