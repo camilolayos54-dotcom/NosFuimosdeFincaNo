@@ -1,0 +1,271 @@
+/* Contenedor de la barra de navegación */
+
+.ctx-c_nav {
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #d4d4d4;
+    position: sticky;
+    z-index: 10;
+}
+
+.ctx-nav_bar {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 1rem 5%;
+    gap: 1rem;
+}
+
+/* Logo */
+
+.ctx-c_nav_logo {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.ctx-c_nav_logo .logo img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Main Navigation Links */
+
+
+.ctx-c_nav_main_options {
+    display: flex;
+    justify-content: center;
+}
+
+.ctx-options {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.ctx-options li {
+    list-style: none;
+}
+
+.ctx-options li a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: #666666;
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.ctx-options li a:hover {
+    color: #0d1e16;
+    background-color: rgba(13, 30, 22, 0.05);
+    transform: translateY(-2px);
+}
+
+/* Active State matches the image */
+.ctx-options li.active a {
+    color: #ffffff;
+    font-weight: 600;
+    background-color: #0d1e16;
+    box-shadow: 0 4px 12px rgba(13, 30, 22, 0.2);
+}
+
+/* =========================================
+   Right Actions (Button & Icons)
+========================================= */
+.ctx-c_nav_actions {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+/* Publicar Button */
+.btn-dark {
+    background-color: #0d1e16;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-dark:hover {
+    background-color: #1a3c2c;
+}
+
+/* Icons Wrapper */
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* Dropdowns */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-trigger {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    transition: color 0.2s ease;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.dropdown-trigger:hover {
+    color: #111;
+}
+
+.menu-btn {
+    background-color: #f3f4f6;
+    padding: 0.4rem;
+    border-radius: 50%;
+    border: 1px solid #e5e7eb;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-btn:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown ul {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    z-index: 10;
+    
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+}
+
+/* Puente invisible para mantener el hover en el espacio vacío */
+.dropdown ul::before {
+    content: '';
+    position: absolute;
+    top: -0.5rem;
+    left: 0;
+    width: 100%;
+    height: 0.5rem;
+}
+
+.dropdown:hover ul {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown ul li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.dropdown ul li a:hover {
+    background-color: #f9f9f9;
+}
+
+/* =========================================
+   Responsive Design (Media Queries)
+========================================= */
+
+/* Tablet & Smaller Screens */
+@media screen and (max-width: 992px) {
+    .ctx-options {
+        gap: 1.5rem;
+    }
+
+    .ctx-nav_bar {
+        padding: 1rem 4%;
+    }
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 768px) {
+    .ctx-c_nav_main_options {
+        order: 3;
+        flex: 1 1 100%;
+        margin-top: 1rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
+    }
+    
+    /* Scrollbar styling para mobile */
+    .ctx-c_nav_main_options::-webkit-scrollbar {
+        height: 4px;
+    }
+    .ctx-c_nav_main_options::-webkit-scrollbar-thumb {
+        background: #e5e7eb;
+        border-radius: 4px;
+    }
+
+    .ctx-options {
+        gap: 1.5rem;
+        justify-content: flex-start;
+        width: max-content;
+        padding: 0.5rem 1rem 1rem 1rem;
+        margin: 0;
+    }
+
+    .ctx-options li a {
+        font-size: 1.15rem;
+        padding: 0.6rem 1.5rem;
+    }
+
+    .ctx-nav_bar {
+        padding: 0.8rem 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .btn-dark {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .ctx-c_nav_logo .logo img {
+        height: 60px;
+        /* Scaled down slightly for mobile */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .ctx-nav_bar {
+        padding: 0.8rem 1rem;
+    }
+
+    .nav-icons {
+        gap: 0.5rem;
+    }
+}
