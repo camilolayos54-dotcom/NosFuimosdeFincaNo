@@ -7,11 +7,13 @@
     box-sizing: border-box;
 }
 
-body {
+body, html {
     font-family: 'Inter', sans-serif;
     background-color: #ffffff;
     color: #333;
     overflow-x: hidden;
+    max-width: 100vw;
+    scroll-behavior: smooth;
 }
 
 /* =========================================
@@ -41,7 +43,7 @@ body {
 }
 
 .line-label-white::before {
-    background-color: #d4c5b0;
+    background-color: #F4D03F; /* Dorado brillante claro */
 }
 
 /* =========================================
@@ -94,7 +96,8 @@ body {
     opacity: 1;
 }
 
-.carousel-item img {
+.carousel-item img,
+.carousel-item video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -106,7 +109,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
+    background: rgba(0, 0, 0, 0.35); /* 35% de opacidad para mejorar lectura */
     z-index: 2;
 }
 
@@ -121,7 +124,7 @@ body {
 }
 
 .hero-label {
-    color: #e8dcc4;
+    color: #F4D03F; /* Dorado brillante claro */
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 2px;
@@ -143,7 +146,7 @@ body {
 
 .hero-title i {
     font-weight: 400;
-    color: #e8dcc4;
+    color: #F4D03F; /* Dorado brillante claro */
 }
 
 .hero-subtitle {
@@ -476,7 +479,7 @@ body {
    CATALOG SECTION
 ========================================= */
 .catalog-section {
-    background-color: #EBF0EC; /* Un poco más verde que el anterior #F7F8F6 */
+    background-color: #ffffff; /* Ahora blanco, para contrastar con los beneficios */
     padding: 4rem 5%;
 }
 
@@ -495,27 +498,13 @@ body {
 }
 
 .catalog-label {
-    display: block;
+    display: flex;
     color: #539161;
     font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 2px;
+    font-weight: 700;
     margin-bottom: 0.5rem;
-    position: relative;
-    padding-left: 2.5rem;
-    text-transform: uppercase;
 }
 
-.catalog-label::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2rem;
-    height: 1px;
-    background-color: #528b5e;
-}
 
 .catalog-main-title {
     font-family: 'Playfair Display', serif;
@@ -779,7 +768,7 @@ body {
 ========================================= */
 .map-section {
     padding: 5rem 5%;
-    background-color: #ffffff;
+    background-color: #f7f9f8; /* Tono muy suave para contrastar con catálogo y beneficios */
 }
 
 .map-container-wrapper {
@@ -806,6 +795,10 @@ body {
     }
 }
 
+.map-label {
+    margin-bottom: 1rem;
+}
+
 .map-title {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
@@ -826,7 +819,7 @@ body {
 ========================================= */
 .benefits-section {
     padding: 5rem 5%;
-    background-color: #ffffff;
+    background-color: #0b1a13; /* Mismo color del footer */
     text-align: center;
 }
 
@@ -838,14 +831,14 @@ body {
 .benefits-title {
     font-size: 2.2rem;
     font-family: 'Playfair Display', serif;
-    color: #102a1e;
+    color: #ffffff; /* Solicitado en blanco */
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
 .benefits-subtitle {
     font-size: 1.1rem;
-    color: #666;
+    color: #e5e7eb; /* Texto claro para contraste oscuro */
     max-width: 600px;
     margin: 0 auto 4rem auto;
     line-height: 1.6;
@@ -860,8 +853,8 @@ body {
 }
 
 .benefit-card {
-    background: #ffffff;
-    border: 1px solid #eaeaea;
+    background: #ffffff; /* Cajas blancas */
+    border: 1px solid rgba(244, 208, 63, 0.4); /* Borde dorado sutil */
     border-radius: 12px;
     padding: 2.5rem 2rem;
     display: flex;
@@ -873,13 +866,13 @@ body {
 
 .benefit-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .benefit-icon {
     width: 64px;
     height: 64px;
-    background-color: #f3f7f4;
+    background-color: rgba(244, 208, 63, 0.15); /* Fondo icono dorado claro */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -887,17 +880,21 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.benefit-icon svg {
+    color: #F4D03F;
+}
+
 .benefit-title {
     font-size: 1.15rem;
     font-family: 'Playfair Display', serif;
-    color: #102a1e;
+    color: #102a1e; /* Texto oscuro para contrastar en la caja blanca */
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
 .benefit-desc {
     font-size: 0.95rem;
-    color: #666;
+    color: #666; /* Texto gris para contraste en blanco */
     line-height: 1.6;
 }
 
@@ -1154,24 +1151,30 @@ body {
     .hero-section {
         min-height: 100vh;
         height: auto;
-        padding-top: 220px; /* Incrementado para evitar choque con nav de múltiples filas en móvil */
+        padding-top: 280px; /* Increased to avoid multiline navbar overlap */
         padding-bottom: 4rem;
-        justify-content: flex-start; /* Evita que se centre y se suba por encima del nav */
+        justify-content: flex-start;
     }
 
     .hero-title {
-        font-size: 2.2rem;
-        margin-bottom: 1.5rem;
+        font-size: 2rem;
+        margin-bottom: 1rem;
         margin-top: 0;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
     }
     
     .hero-stats {
-        gap: 1.5rem;
-        margin-top: 2rem;
+        gap: 1rem;
+        margin-top: 1.5rem;
     }
 
     .stat-value {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .hero-search-bar {
@@ -1205,6 +1208,17 @@ body {
     .dates-dropdown-container {
         left: 1rem !important;
         transform: translateY(-10px) !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: auto; /* Permite scroll horizontal si es más ancho que la pantalla */
+        padding: 0.5rem;
+    }
+    
+    .dates-dropdown-container .flatpickr-calendar.inline {
+        transform: scale(0.9);
+        transform-origin: top center;
+        margin-bottom: -30px; /* Compensar el espacio extra del scale */
     }
 
     .search-field.active .search-dropdown,
@@ -1227,72 +1241,120 @@ body {
     .benefits-title {
         font-size: 2rem;
     }
+
+    /* Testimonials Responsive */
+    .testimonials-section {
+        padding: 4rem 1rem;
+    }
+
+    .testimonials-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .testimonial-text {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    .quote-mark {
+        font-size: 3rem;
+    }
+
+    .testimonial-controls {
+        gap: 1rem;
+    }
+
+    /* Publish Section Responsive */
+    .publish-section {
+        padding: 4rem 1rem;
+    }
+
+    .publish-title {
+        font-size: 1.8rem;
+    }
+
+    .publish-subtitle {
+        font-size: 1rem;
+    }
+
+    .publish-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .publish-actions button {
+        width: 100%;
+    }
 }
 
 /* =========================================
-   TRANSPARENT NAVBAR (Base - Al tope)
+   TRANSPARENT NAVBAR (Base - Al tope, ONLY DESKTOP)
 ========================================= */
-nav-bar .ctx-c_nav {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    border-bottom: none !important;
-    z-index: 1000 !important;
-    transition: background-color 0.3s ease, border-bottom 0.3s ease, box-shadow 0.3s ease;
-}
+@media screen and (min-width: 901px) {
+    nav-bar .ctx-c_nav {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border-bottom: none !important;
+        z-index: 1000 !important;
+        transition: background-color 0.3s ease, border-bottom 0.3s ease, box-shadow 0.3s ease;
+    }
 
-nav-bar .ctx-c_nav:hover {
-    background: transparent !important;
-}
+    nav-bar .ctx-c_nav:hover {
+        background: transparent !important;
+    }
 
-nav-bar .ctx-options li a {
-    color: #ffffff !important;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7) !important;
-    transition: color 0.3s ease;
-}
+    nav-bar .ctx-options li a {
+        color: #ffffff !important;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7) !important;
+        transition: color 0.3s ease;
+    }
 
-nav-bar .ctx-options li a:hover {
-    background-color: rgba(255, 255, 255, 0.15) !important;
-}
+    nav-bar .ctx-options li a:hover {
+        background-color: rgba(255, 255, 255, 0.15) !important;
+    }
 
-nav-bar .ctx-options li.active a {
-    background-color: #ffffff !important;
-    color: #111 !important;
-    text-shadow: none !important;
-}
+    nav-bar .ctx-options li.active a {
+        background-color: #ffffff !important;
+        color: #111 !important;
+        text-shadow: none !important;
+    }
 
-nav-bar .menu-btn {
-    background-color: rgba(255, 255, 255, 0.15) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    color: #ffffff !important;
-    transition: all 0.3s ease;
-}
+    nav-bar .menu-btn {
+        background-color: rgba(255, 255, 255, 0.15) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        color: #ffffff !important;
+        transition: all 0.3s ease;
+    }
 
-nav-bar .menu-btn:hover {
-    background-color: rgba(255, 255, 255, 0.25) !important;
-}
+    nav-bar .menu-btn:hover {
+        background-color: rgba(255, 255, 255, 0.25) !important;
+    }
 
-nav-bar .dropdown-trigger {
-    color: #ffffff !important;
-}
+    nav-bar .dropdown-trigger {
+        color: #ffffff !important;
+    }
 
-nav-bar .btn-dark {
-    background-color: #ffffff !important;
-    color: #111 !important;
-    border: 1px solid transparent !important;
-    transition: all 0.3s ease;
-}
+    nav-bar .btn-dark {
+        background-color: #ffffff !important;
+        color: #111 !important;
+        border: 1px solid transparent !important;
+        transition: all 0.3s ease;
+    }
 
-nav-bar .btn-dark:hover {
-    background-color: rgba(255, 255, 255, 0.8) !important;
+    nav-bar .btn-dark:hover {
+        background-color: rgba(255, 255, 255, 0.8) !important;
+    }
 }
 
 /* =========================================
-   SOLID NAVBAR (Al hacer scroll)
+   SOLID NAVBAR (Al hacer scroll, EVERYWHERE)
 ========================================= */
 nav-bar.scrolled .ctx-c_nav {
     background-color: #ffffff !important;

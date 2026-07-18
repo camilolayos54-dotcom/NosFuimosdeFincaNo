@@ -211,7 +211,7 @@
 }
 
 /* Mobile Devices */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     .ctx-c_nav_main_options {
         order: 3;
         flex: 1 1 100%;

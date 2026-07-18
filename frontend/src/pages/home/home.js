@@ -1,5 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
     /* =========================================
+       SMOOTH SCROLLING (LENIS)
+    ========================================= */
+    // Inicializar Lenis
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false,
+    });
+
+    // Bucle de animación de Lenis
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    /* =========================================
        HERO CAROUSEL LOGIC
     ========================================= */
     const carouselItems = document.querySelectorAll('.carousel-item');
@@ -17,6 +40,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Añadir clase active al nuevo slide
             carouselItems[currentSlide].classList.add('active');
         }, slideInterval);
+    }
+
+    // Funcionalidad del botón de bajar (Hero Arrow)
+    const scrollDownBtn = document.getElementById('scrollDownBtn');
+    if (scrollDownBtn) {
+        scrollDownBtn.addEventListener('click', () => {
+            lenis.scrollTo('#catalog', { offset: -80, duration: 1.5 });
+        });
     }
 
     /* =========================================
@@ -203,10 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            lenis.scrollTo(0, { duration: 1.5 });
         });
     }
 });

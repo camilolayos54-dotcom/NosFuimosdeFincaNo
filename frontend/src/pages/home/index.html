@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script>
     <script src="../../js/i18n.js"></script>
     <script src="../../components/navbar.js" defer></script>
     <script src="../../components/footer.js" defer></script>
@@ -31,33 +32,32 @@
             <div class="hero-carousel" id="heroCarousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="/frontend/public/pexels-arlin-raf-2160819254-37131300.jpg" alt="Cafetal en Colombia">
+                        <video src="/frontend/public/12228919_1280_720_30fps.mp4" poster="/frontend/public/img_pool1.jpg" autoplay loop muted playsinline></video>
                     </div>
                     <div class="carousel-item">
-                        <img src="/frontend/public/pexels-clodoaldo-franco-2150764283-31316043.jpg" alt="Finca paisaje">
+                        <video src="/frontend/public/12233824_3840_2160_30fps.mp4" poster="/frontend/public/img_pool2.jpg" autoplay loop muted playsinline></video>
                     </div>
                     <div class="carousel-item">
-                        <img src="/frontend/public/pexels-santiagob-9408324.jpg" alt="Finca moderna">
+                        <video src="/frontend/public/16088845_1280_720_60fps.mp4" poster="/frontend/public/img_pool3.jpg" autoplay loop muted playsinline></video>
                     </div>
                     <div class="carousel-item">
-                        <img src="/frontend/public/pexels-jean-paul-montanaro-49563862-14510506.jpg"
-                            alt="Paisaje verde">
+                        <video src="/frontend/public/7950012-hd_1280_720_30fps.mp4" poster="/frontend/public/img_pool4.jpg" autoplay loop muted playsinline></video>
                     </div>
                 </div>
                 <div class="hero-overlay"></div>
             </div>
 
             <div class="hero-content">
-                <p class="hero-label line-label line-label-white">ALQUILER DE FINCAS</p>
-                <h1 class="hero-title">Tu escapada perfecta <i style="font-style: italic; font-family: Playfair Display, serif;">al campo</i> comienza aquí</h1>
-                <p class="hero-subtitle">Fincas, haciendas y cabañas verificadas en los paisajes más hermosos del país. Reserva de forma fácil, rápida y sin sorpresas.</p>
+                <p class="hero-label line-label line-label-white" data-i18n="home.heroLabel">ALQUILER DE FINCAS</p>
+                <h1 class="hero-title" data-i18n="home.heroTitle">Tu escapada perfecta <i style="font-style: italic; font-family: Playfair Display, serif;">al campo</i> comienza aquí</h1>
+                <p class="hero-subtitle" data-i18n="home.heroSubtitle">Fincas, haciendas y cabañas verificadas en los paisajes más hermosos del país. Reserva de forma fácil, rápida y sin sorpresas.</p>
                 
                 <div class="hero-search-bar" id="searchBar">
                     <!-- Buscador: Destino -->
                     <div class="search-field" data-dropdown="location-dropdown">
                         <div class="search-field-content">
-                            <label>DESTINO</label>
-                            <input type="text" placeholder="¿A dónde quieres ir? ⌄" readonly>
+                            <label data-i18n="home.searchLocationLabel">DESTINO</label>
+                            <input type="text" placeholder="¿A dónde quieres ir? ⌄" data-i18n="home.searchLocationPlaceholder" readonly>
                         </div>
                         <div class="search-dropdown" id="location-dropdown">
                             <ul class="dropdown-list">
@@ -74,8 +74,8 @@
                     <!-- Buscador: Llegada -->
                     <div class="search-field" data-dropdown="dates-dropdown">
                         <div class="search-field-content">
-                            <label>LLEGADA</label>
-                            <input type="text" id="date-display-in" placeholder="mm/dd/yyyy 📅" readonly>
+                            <label data-i18n="home.searchInLabel">LLEGADA</label>
+                            <input type="text" id="date-display-in" placeholder="mm/dd/yyyy 📅" data-i18n="home.searchInPlaceholder" readonly>
                         </div>
                         <div class="search-dropdown dates-dropdown-container" id="dates-dropdown">
                             <!-- Contenedor para el calendario inline de Flatpickr -->
@@ -88,8 +88,8 @@
                     <!-- Buscador: Salida -->
                     <div class="search-field" id="salida-field">
                         <div class="search-field-content">
-                            <label>SALIDA</label>
-                            <input type="text" id="date-display-out" placeholder="mm/dd/yyyy 📅" readonly>
+                            <label data-i18n="home.searchOutLabel">SALIDA</label>
+                            <input type="text" id="date-display-out" placeholder="mm/dd/yyyy 📅" data-i18n="home.searchOutPlaceholder" readonly>
                         </div>
                     </div>
                     
@@ -98,14 +98,14 @@
                     <!-- Buscador: Huéspedes -->
                     <div class="search-field" data-dropdown="guests-dropdown">
                         <div class="search-field-content">
-                            <label>HUÉSPEDES</label>
-                            <input type="text" id="guests-display" placeholder="2 Huéspedes ⌄" readonly>
+                            <label data-i18n="home.searchGuestsLabel">HUÉSPEDES</label>
+                            <input type="text" id="guests-display" placeholder="2 Huéspedes ⌄" data-i18n="home.searchGuestsPlaceholder" readonly>
                         </div>
                         <div class="search-dropdown" id="guests-dropdown">
                             <div class="guest-counter">
                                 <div class="guest-type">
-                                    <strong>Adultos</strong>
-                                    <span>Edad 13+</span>
+                                    <strong data-i18n="home.adults">Adultos</strong>
+                                    <span data-i18n="home.age13">Edad 13+</span>
                                 </div>
                                 <div class="counter-controls">
                                     <button class="btn-minus" data-type="adults">-</button>
@@ -115,8 +115,8 @@
                             </div>
                             <div class="guest-counter">
                                 <div class="guest-type">
-                                    <strong>Niños</strong>
-                                    <span>Edades 2-12</span>
+                                    <strong data-i18n="home.children">Niños</strong>
+                                    <span data-i18n="home.age2_12">Edades 2-12</span>
                                 </div>
                                 <div class="counter-controls">
                                     <button class="btn-minus" data-type="children">-</button>
@@ -130,31 +130,30 @@
                     <!-- Botón Buscar -->
                     <button class="search-submit-btn btn-text" aria-label="Buscar">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                        <span>Buscar</span>
+                        <span data-i18n="home.searchBtn">Buscar</span>
                     </button>
-                </div>             </div>
-
+                </div>
                 <div class="hero-stats">
                     <div class="stat-item">
                         <span class="stat-value">120+</span>
-                        <span class="stat-desc">Fincas verificadas</span>
+                        <span class="stat-desc" data-i18n="home.statsVerified">Fincas verificadas</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-value">15</span>
-                        <span class="stat-desc">Años de experiencia</span>
+                        <span class="stat-desc" data-i18n="home.statsExp">Años de experiencia</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-value">48k</span>
-                        <span class="stat-desc">Huéspedes felices</span>
+                        <span class="stat-desc" data-i18n="home.statsHappy">Huéspedes felices</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-value">4.9★</span>
-                        <span class="stat-desc">Calificación promedio</span>
+                        <span class="stat-value">4.9/5</span>
+                        <span class="stat-desc" data-i18n="home.statsRating">Calificación promedio</span>
                     </div>
                 </div>
             </div>
 
-            <div class="hero-scroll-down">
+            <div class="hero-scroll-down" id="scrollDownBtn" style="cursor: pointer;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
                     <path d="M6 9l6 6 6-6" />
@@ -166,17 +165,16 @@
         <section class="catalog-section" id="catalog">
             <div class="catalog-header-container">
                 <div class="catalog-titles">
-                    <span class="catalog-label">NUESTRA SELECCIÓN</span>
-                    <h2 class="catalog-main-title">Fincas destacadas</h2>
-                    <p class="catalog-subtitle">Espacios únicos revisados uno a uno por nuestro equipo, listos para tu
-                        próximo descanso.</p>
+                    <span class="catalog-label line-label" data-i18n="home.catalogLabel">NUESTRA SELECCIÓN</span>
+                    <h2 class="catalog-main-title" data-i18n="home.catalogTitle">Fincas destacadas</h2>
+                    <p class="catalog-subtitle" data-i18n="home.catalogSubtitle">Espacios únicos revisados uno a uno por nuestro equipo, listos para tu próximo descanso.</p>
                 </div>
                 <div class="catalog-filters">
-                    <button class="filter-pill active">Todas</button>
-                    <button class="filter-pill">Premium</button>
-                    <button class="filter-pill">Piscina</button>
-                    <button class="filter-pill">Montaña</button>
-                    <button class="filter-pill">Colonial</button>
+                    <button class="filter-pill active" data-i18n="home.filterAll">Todas</button>
+                    <button class="filter-pill" data-i18n="home.filterPremium">Premium</button>
+                    <button class="filter-pill" data-i18n="home.filterPool">Piscina</button>
+                    <button class="filter-pill" data-i18n="home.filterMountain">Montaña</button>
+                    <button class="filter-pill" data-i18n="home.filterColonial">Colonial</button>
                 </div>
             </div>
 
@@ -228,8 +226,8 @@
                                 </svg><span>4<br>baños</span></div>
                         </div>
                         <div class="finca-footer">
-                            <p class="finca-price"><strong>$1.450.000</strong> <span>/ noche</span></p>
-                            <button class="btn-ver-mas">Ver más</button>
+                            <p class="finca-price"><strong>$1.250.000</strong> <span data-i18n="home.perNight">/ noche</span></p>
+                            <button class="btn-ver-mas" data-i18n="home.verMas">Ver más</button>
                         </div>
                     </div>
                 </article>
@@ -281,8 +279,8 @@
                                 </svg><span>5<br>baños</span></div>
                         </div>
                         <div class="finca-footer">
-                            <p class="finca-price"><strong>$980.000</strong> <span>/ noche</span></p>
-                            <button class="btn-ver-mas">Ver más</button>
+                            <p class="finca-price"><strong>$980.000</strong> <span data-i18n="home.perNight">/ noche</span></p>
+                            <button class="btn-ver-mas" data-i18n="home.verMas">Ver más</button>
                         </div>
                     </div>
                 </article>
@@ -387,8 +385,8 @@
                                 </svg><span>3<br>baños</span></div>
                         </div>
                         <div class="finca-footer">
-                            <p class="finca-price"><strong>$760.000</strong> <span>/ noche</span></p>
-                            <button class="btn-ver-mas">Ver más</button>
+                            <p class="finca-price"><strong>$760.000</strong> <span data-i18n="home.perNight">/ noche</span></p>
+                            <button class="btn-ver-mas" data-i18n="home.verMas">Ver más</button>
                         </div>
                     </div>
                 </article>
@@ -403,7 +401,8 @@
         <section class="map-section">
             <div class="map-container-wrapper">
                 <div class="map-text">
-                    <h2 class="map-title">Descubre fincas, haciendas y cabañas verificadas cerca de ti o en el destino
+                    <p class="map-label line-label" data-i18n="home.mapLabel">UBICACIÓN</p>
+                    <h2 class="map-title" data-i18n="home.mapTitle">Descubre fincas, haciendas y cabañas verificadas cerca de ti o en el destino
                         que prefieras.</h2>
                 </div>
                 <div class="map-embed-container">
@@ -418,10 +417,10 @@
         <section class="benefits-section">
             <div class="benefits-container">
                 <div style="display: flex; justify-content: center; width: 100%;">
-                    <p class="benefits-label line-label">CONFIANZA Y RESPALDO</p>
+                    <p class="benefits-label line-label line-label-white" data-i18n="home.benefitsLabel">CONFIANZA Y RESPALDO</p>
                 </div>
-                <h2 class="benefits-title">¿Por qué reservar con Nos Fuimos de Finca?</h2>
-                <p class="benefits-subtitle">Nos encargamos de cada detalle para que tú solo te preocupes por descansar.</p>
+                <h2 class="benefits-title" data-i18n="home.benefitsTitle">¿Por qué reservar con Nos Fuimos de Finca?</h2>
+                <p class="benefits-subtitle" data-i18n="home.benefitsSubtitle">Nos encargamos de cada detalle para que tú solo te preocupes por descansar.</p>
 
                 <div class="benefits-grid">
                     <div class="benefit-card">
@@ -432,8 +431,8 @@
                                 <path d="m9 12 2 2 4-4" />
                             </svg>
                         </div>
-                        <h3 class="benefit-title">Fincas verificadas</h3>
-                        <p class="benefit-desc">Visitamos y verificamos cada propiedad antes de publicarla. Lo que ves es lo que encuentras.</p>
+                        <h3 class="benefit-title" data-i18n="home.benefit1Title">Fincas verificadas</h3>
+                        <p class="benefit-desc" data-i18n="home.benefit1Desc">Visitamos y verificamos cada propiedad antes de publicarla. Lo que ves es lo que encuentras.</p>
                     </div>
 
                     <div class="benefit-card">
@@ -446,8 +445,8 @@
                                 <path d="M9.5 14a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0Z"/>
                             </svg>
                         </div>
-                        <h3 class="benefit-title">Mejor precio garantizado</h3>
-                        <p class="benefit-desc">Reservas directas con los dueños, sin comisiones ocultas ni cargos sorpresa.</p>
+                        <h3 class="benefit-title" data-i18n="home.benefit2Title">Mejor precio garantizado</h3>
+                        <p class="benefit-desc" data-i18n="home.benefit2Desc">Reservas directas con los dueños, sin comisiones ocultas ni cargos sorpresa.</p>
                     </div>
 
                     <div class="benefit-card">
@@ -457,8 +456,8 @@
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                             </svg>
                         </div>
-                        <h3 class="benefit-title">Atención 24/7</h3>
-                        <p class="benefit-desc">Acompañamiento antes, durante y después de tu estadía, todos los días del año.</p>
+                        <h3 class="benefit-title" data-i18n="home.benefit3Title">Atención 24/7</h3>
+                        <p class="benefit-desc" data-i18n="home.benefit3Desc">Acompañamiento antes, durante y después de tu estadía, todos los días del año.</p>
                     </div>
 
                     <div class="benefit-card">
@@ -471,8 +470,8 @@
                                 <path d="m15 15-6 4"/>
                             </svg>
                         </div>
-                        <h3 class="benefit-title">Cancelación flexible</h3>
-                        <p class="benefit-desc">Cambia o cancela tu reserva hasta 7 días antes de la llegada sin penalidad.</p>
+                        <h3 class="benefit-title" data-i18n="home.benefit4Title">Cancelación flexible</h3>
+                        <p class="benefit-desc" data-i18n="home.benefit4Desc">Cambia o cancela tu reserva hasta 7 días antes de la llegada sin penalidad.</p>
                     </div>
                 </div>
             </div>
@@ -482,19 +481,19 @@
         <section class="testimonials-section">
             <div class="testimonials-container">
                 <div style="display: flex; justify-content: center; width: 100%;">
-                    <p class="testimonials-label line-label">LO QUE DICEN NUESTROS HUÉSPEDES</p>
+                    <p class="testimonials-label line-label" data-i18n="home.testimonialsLabel">LO QUE DICEN NUESTROS HUÉSPEDES</p>
                 </div>
-                <h2 class="testimonials-title">Testimonios</h2>
+                <h2 class="testimonials-title" data-i18n="home.testimonialsTitle">Testimonios</h2>
                 
                 <div class="testimonial-content">
                     <div class="quote-mark">“</div>
-                    <p class="testimonial-text">"Celebramos el aniversario de mis padres en la Hacienda Santa Clara y fue mágico. El patio colonial es aún más hermoso que en las fotos."</p>
+                    <p class="testimonial-text" data-i18n="home.testimonial1">"Celebramos el aniversario de mis padres en la Hacienda Santa Clara y fue mágico. El patio colonial es aún más hermoso que en las fotos."</p>
                     
                     <div class="testimonial-author">
                         <div class="author-avatar">CV</div>
                         <div class="author-info">
-                            <strong>Camila Vargas</strong>
-                            <span>Cali • Evento privado</span>
+                            <strong data-i18n="home.author1">Camila Vargas</strong>
+                            <span data-i18n="home.location1">Cali • Evento privado</span>
                         </div>
                     </div>
                     
@@ -519,11 +518,11 @@
         <section class="publish-section">
             <div class="publish-overlay"></div>
             <div class="publish-container">
-                <h2 class="publish-title">¿Tienes una finca y quieres publicarla?</h2>
-                <p class="publish-subtitle">Únete a nuestra red de propietarios y empieza a recibir reservas desde el primer mes.</p>
+                <h2 class="publish-title" data-i18n="home.publishTitle">¿Tienes una finca y quieres publicarla?</h2>
+                <p class="publish-subtitle" data-i18n="home.publishSubtitle">Únete a nuestra red de propietarios y empieza a recibir reservas desde el primer mes.</p>
                 <div class="publish-actions">
-                    <button class="btn-primary">Publicar mi finca</button>
-                    <button class="btn-outline">Ver fincas disponibles</button>
+                    <button class="btn-primary" data-i18n="home.publishBtnPrimary">Publicar mi finca</button>
+                    <button class="btn-outline" data-i18n="home.publishBtnOutline">Ver fincas disponibles</button>
                 </div>
             </div>
         </section>
