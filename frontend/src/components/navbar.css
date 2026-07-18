@@ -64,8 +64,8 @@
 }
 
 .ctx-options li a:hover {
-    color: #0d1e16;
-    background-color: rgba(13, 30, 22, 0.05);
+    color: #355e3b;
+    background-color: rgba(53, 94, 59, 0.05);
     transform: translateY(-2px);
 }
 
@@ -73,8 +73,8 @@
 .ctx-options li.active a {
     color: #ffffff;
     font-weight: 600;
-    background-color: #0d1e16;
-    box-shadow: 0 4px 12px rgba(13, 30, 22, 0.2);
+    background-color: #355e3b;
+    box-shadow: 0 4px 12px rgba(53, 94, 59, 0.2);
 }
 
 /* Right Actions (Button & Icons) */
@@ -90,7 +90,7 @@
 /* Publicar Button */
 
 .btn-dark {
-    background-color: #0d1e16;
+    background-color: #355e3b;
     color: #ffffff;
     border: none;
     padding: 0.5rem 1.25rem;
@@ -103,7 +103,7 @@
 }
 
 .btn-dark:hover {
-    background-color: #1a3c2c;
+    background-color: #2b4a2e;
 }
 
 /* Icons Wrapper */
