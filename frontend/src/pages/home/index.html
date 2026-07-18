@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nos Fuimos de Finca - Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="../../components/navbar.css">
     <link rel="stylesheet" href="../../components/footer.css">
     <link rel="stylesheet" href="./home.css">
@@ -18,6 +21,7 @@
     <script src="../../components/footer.js" defer></script>
     <script src="./home.js" defer></script>
 </head>
+
 <body>
     <nav-bar></nav-bar>
 
@@ -36,16 +40,17 @@
                         <img src="/frontend/public/pexels-santiagob-9408324.jpg" alt="Finca moderna">
                     </div>
                     <div class="carousel-item">
-                        <img src="/frontend/public/pexels-jean-paul-montanaro-49563862-14510506.jpg" alt="Paisaje verde">
+                        <img src="/frontend/public/pexels-jean-paul-montanaro-49563862-14510506.jpg"
+                            alt="Paisaje verde">
                     </div>
                 </div>
                 <div class="hero-overlay"></div>
             </div>
-            
+
             <div class="hero-content">
-                <p class="hero-label">ALQUILER DE FINCAS CAMPESTRES</p>
-                <h1 class="hero-title" data-i18n="home.heroTitle">Tu escapada perfecta <i style="font-style: italic;">al campo</i> comienza aquí</h1>
-                <p class="hero-subtitle">Fincas, haciendas y cabañas verificadas en los paisajes más hermosos del país. Reserva fácil, sin sorpresas y con atención 24/7.</p>
+                <p class="hero-label line-label line-label-white">ALQUILER DE FINCAS</p>
+                <h1 class="hero-title">Tu escapada perfecta <i style="font-style: italic; font-family: Playfair Display, serif;">al campo</i> comienza aquí</h1>
+                <p class="hero-subtitle">Fincas, haciendas y cabañas verificadas en los paisajes más hermosos del país. Reserva de forma fácil, rápida y sin sorpresas.</p>
                 
                 <div class="hero-search-bar" id="searchBar">
                     <!-- Buscador: Destino -->
@@ -54,38 +59,70 @@
                             <label>DESTINO</label>
                             <input type="text" placeholder="¿A dónde quieres ir? ⌄" readonly>
                         </div>
+                        <div class="search-dropdown" id="location-dropdown">
+                            <ul class="dropdown-list">
+                                <li>Quindío, Colombia</li>
+                                <li>Antioquia, Colombia</li>
+                                <li>Santander, Colombia</li>
+                                <li>Eje Cafetero</li>
+                            </ul>
+                        </div>
                     </div>
                     
                     <div class="search-divider"></div>
                     
                     <!-- Buscador: Llegada -->
-                    <div class="search-field" data-dropdown="dates-dropdown-in">
+                    <div class="search-field" data-dropdown="dates-dropdown">
                         <div class="search-field-content">
                             <label>LLEGADA</label>
-                            <input type="text" placeholder="mm/dd/yyyy 📅" readonly>
+                            <input type="text" id="date-display-in" placeholder="mm/dd/yyyy 📅" readonly>
+                        </div>
+                        <div class="search-dropdown dates-dropdown-container" id="dates-dropdown">
+                            <!-- Contenedor para el calendario inline de Flatpickr -->
+                            <input type="text" id="date-picker-inline" style="display: none;">
                         </div>
                     </div>
                     
                     <div class="search-divider"></div>
                     
                     <!-- Buscador: Salida -->
-                    <div class="search-field" data-dropdown="dates-dropdown-out">
+                    <div class="search-field" id="salida-field">
                         <div class="search-field-content">
                             <label>SALIDA</label>
-                            <input type="text" placeholder="mm/dd/yyyy 📅" readonly>
+                            <input type="text" id="date-display-out" placeholder="mm/dd/yyyy 📅" readonly>
                         </div>
                     </div>
                     
                     <div class="search-divider"></div>
                     
                     <!-- Buscador: Huéspedes -->
-                    <div class="search-field guests-inline">
+                    <div class="search-field" data-dropdown="guests-dropdown">
                         <div class="search-field-content">
                             <label>HUÉSPEDES</label>
-                            <div class="inline-counter">
-                                <button class="btn-minus">-</button>
-                                <span>2</span>
-                                <button class="btn-plus">+</button>
+                            <input type="text" id="guests-display" placeholder="2 Huéspedes ⌄" readonly>
+                        </div>
+                        <div class="search-dropdown" id="guests-dropdown">
+                            <div class="guest-counter">
+                                <div class="guest-type">
+                                    <strong>Adultos</strong>
+                                    <span>Edad 13+</span>
+                                </div>
+                                <div class="counter-controls">
+                                    <button class="btn-minus" data-type="adults">-</button>
+                                    <span class="count-adults">2</span>
+                                    <button class="btn-plus" data-type="adults">+</button>
+                                </div>
+                            </div>
+                            <div class="guest-counter">
+                                <div class="guest-type">
+                                    <strong>Niños</strong>
+                                    <span>Edades 2-12</span>
+                                </div>
+                                <div class="counter-controls">
+                                    <button class="btn-minus" data-type="children">-</button>
+                                    <span class="count-children">0</span>
+                                    <button class="btn-plus" data-type="children">+</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -95,8 +132,8 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                         <span>Buscar</span>
                     </button>
-                </div>
-                
+                </div>             </div>
+
                 <div class="hero-stats">
                     <div class="stat-item">
                         <span class="stat-value">120+</span>
@@ -116,19 +153,23 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="hero-scroll-down">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9l6 6 6-6" />
+                </svg>
             </div>
         </section>
 
-        <!-- Catalog Header & Filters Section -->
-        <section class="catalog-header-section">
+        <!-- Catalog Section -->
+        <section class="catalog-section" id="catalog">
             <div class="catalog-header-container">
                 <div class="catalog-titles">
                     <span class="catalog-label">NUESTRA SELECCIÓN</span>
                     <h2 class="catalog-main-title">Fincas destacadas</h2>
-                    <p class="catalog-subtitle">Espacios únicos revisados uno a uno por nuestro equipo, listos para tu próximo descanso.</p>
+                    <p class="catalog-subtitle">Espacios únicos revisados uno a uno por nuestro equipo, listos para tu
+                        próximo descanso.</p>
                 </div>
                 <div class="catalog-filters">
                     <button class="filter-pill active">Todas</button>
@@ -138,18 +179,20 @@
                     <button class="filter-pill">Colonial</button>
                 </div>
             </div>
-        </section>
 
-        <!-- Fincas Catalog Grid -->
-        <section class="fincas-section">
             <div class="fincas-grid">
                 <!-- Card 1 -->
                 <article class="finca-card">
                     <div class="finca-img-wrapper">
                         <span class="category-pill pill-premium">PREMIUM</span>
-                        <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=500&auto=format&fit=crop" alt="Villa del Sol">
+                        <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=500&auto=format&fit=crop"
+                            alt="Villa del Sol">
                         <button class="favorite-btn" aria-label="Favorite">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" style="background: white; border-radius: 50%; padding: 4px; width: 28px; height: 28px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"
+                                style="background: white; border-radius: 50%; padding: 4px; width: 28px; height: 28px;">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
                         </button>
                     </div>
                     <div class="finca-info">
@@ -158,13 +201,31 @@
                             <span class="finca-rating">★ 5.0</span>
                         </div>
                         <p class="finca-location">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
                             La Mesa, Cundinamarca
                         </p>
                         <div class="finca-amenities">
-                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>12<br>huéspedes</span></div>
-                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg><span>5<br>hab.</span></div>
-                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10z"/><path d="M8 4v2"/><path d="M12 4v2"/><path d="M16 4v2"/><path d="M4 10V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2"/></svg><span>4<br>baños</span></div>
+                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg><span>12<br>huéspedes</span></div>
+                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9" />
+                                </svg><span>5<br>hab.</span></div>
+                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M4 10h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10z" />
+                                    <path d="M8 4v2" />
+                                    <path d="M12 4v2" />
+                                    <path d="M16 4v2" />
+                                    <path d="M4 10V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2" />
+                                </svg><span>4<br>baños</span></div>
                         </div>
                         <div class="finca-footer">
                             <p class="finca-price"><strong>$1.450.000</strong> <span>/ noche</span></p>
@@ -177,9 +238,14 @@
                 <article class="finca-card">
                     <div class="finca-img-wrapper">
                         <span class="category-pill pill-piscina">PISCINA</span>
-                        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?w=500&auto=format&fit=crop" alt="Finca El Mirador">
+                        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?w=500&auto=format&fit=crop"
+                            alt="Finca El Mirador">
                         <button class="favorite-btn" aria-label="Favorite">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" style="background: white; border-radius: 50%; padding: 4px; width: 28px; height: 28px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"
+                                style="background: white; border-radius: 50%; padding: 4px; width: 28px; height: 28px;">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
                         </button>
                     </div>
                     <div class="finca-info">
@@ -188,13 +254,31 @@
                             <span class="finca-rating">★ 4.9</span>
                         </div>
                         <p class="finca-location">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
                             Anapoima, Cundinamarca
                         </p>
                         <div class="finca-amenities">
-                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>10<br>huéspedes</span></div>
-                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg><span>4<br>hab.</span></div>
-                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10z"/><path d="M8 4v2"/><path d="M12 4v2"/><path d="M16 4v2"/><path d="M4 10V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2"/></svg><span>5<br>baños</span></div>
+                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg><span>10<br>huéspedes</span></div>
+                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9" />
+                                </svg><span>4<br>hab.</span></div>
+                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M4 10h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10z" />
+                                    <path d="M8 4v2" />
+                                    <path d="M12 4v2" />
+                                    <path d="M16 4v2" />
+                                    <path d="M4 10V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2" />
+                                </svg><span>5<br>baños</span></div>
                         </div>
                         <div class="finca-footer">
                             <p class="finca-price"><strong>$980.000</strong> <span>/ noche</span></p>
@@ -207,9 +291,14 @@
                 <article class="finca-card">
                     <div class="finca-img-wrapper">
                         <span class="category-pill pill-montana">MONTAÑA</span>
-                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&auto=format&fit=crop" alt="Cabaña La Arboleda">
+                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&auto=format&fit=crop"
+                            alt="Cabaña La Arboleda">
                         <button class="favorite-btn" aria-label="Favorite">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" style="background: white; border-radius: 50%; padding: 4px; width: 28px; height: 28px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"
+                                style="background: white; border-radius: 50%; padding: 4px; width: 28px; height: 28px;">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
                         </button>
                     </div>
                     <div class="finca-info">
@@ -218,13 +307,31 @@
                             <span class="finca-rating">★ 4.8</span>
                         </div>
                         <p class="finca-location">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
                             Salento, Quindío
                         </p>
                         <div class="finca-amenities">
-                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>6<br>huéspedes</span></div>
-                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg><span>3<br>hab.</span></div>
-                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10z"/><path d="M8 4v2"/><path d="M12 4v2"/><path d="M16 4v2"/><path d="M4 10V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2"/></svg><span>2<br>baños</span></div>
+                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg><span>6<br>huéspedes</span></div>
+                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9" />
+                                </svg><span>3<br>hab.</span></div>
+                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M4 10h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10z" />
+                                    <path d="M8 4v2" />
+                                    <path d="M12 4v2" />
+                                    <path d="M16 4v2" />
+                                    <path d="M4 10V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2" />
+                                </svg><span>2<br>baños</span></div>
                         </div>
                         <div class="finca-footer">
                             <p class="finca-price"><strong>$520.000</strong> <span>/ noche</span></p>
@@ -237,9 +344,14 @@
                 <article class="finca-card">
                     <div class="finca-img-wrapper">
                         <span class="category-pill pill-colonial">COLONIAL</span>
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500&auto=format&fit=crop" alt="Hacienda Santa Clara">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500&auto=format&fit=crop"
+                            alt="Hacienda Santa Clara">
                         <button class="favorite-btn" aria-label="Favorite">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" style="background: white; border-radius: 50%; padding: 4px; width: 28px; height: 28px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"
+                                style="background: white; border-radius: 50%; padding: 4px; width: 28px; height: 28px;">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
                         </button>
                     </div>
                     <div class="finca-info">
@@ -248,13 +360,31 @@
                             <span class="finca-rating">★ 4.9</span>
                         </div>
                         <p class="finca-location">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
                             Villa de Leyva, Boyacá
                         </p>
                         <div class="finca-amenities">
-                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>8<br>huéspedes</span></div>
-                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg><span>4<br>hab.</span></div>
-                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10z"/><path d="M8 4v2"/><path d="M12 4v2"/><path d="M16 4v2"/><path d="M4 10V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2"/></svg><span>3<br>baños</span></div>
+                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg><span>8<br>huéspedes</span></div>
+                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9" />
+                                </svg><span>4<br>hab.</span></div>
+                            <div class="amenity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M4 10h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10z" />
+                                    <path d="M8 4v2" />
+                                    <path d="M12 4v2" />
+                                    <path d="M16 4v2" />
+                                    <path d="M4 10V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2" />
+                                </svg><span>3<br>baños</span></div>
                         </div>
                         <div class="finca-footer">
                             <p class="finca-price"><strong>$760.000</strong> <span>/ noche</span></p>
@@ -263,7 +393,7 @@
                     </div>
                 </article>
             </div>
-            
+
             <div class="load-more-container">
                 <button class="btn-load-more" data-i18n="home.loadMore">Cargar más fincas</button>
             </div>
@@ -273,10 +403,13 @@
         <section class="map-section">
             <div class="map-container-wrapper">
                 <div class="map-text">
-                    <h2 class="map-title">Descubre fincas, haciendas y cabañas verificadas cerca de ti o en el destino que prefieras.</h2>
+                    <h2 class="map-title">Descubre fincas, haciendas y cabañas verificadas cerca de ti o en el destino
+                        que prefieras.</h2>
                 </div>
                 <div class="map-embed-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31731.415492816458!2d-75.5658!3d6.2518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sco!4v1620000000000!5m2!1sen!2sco" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31731.415492816458!2d-75.5658!3d6.2518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sco!4v1620000000000!5m2!1sen!2sco"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </section>
@@ -284,38 +417,126 @@
         <!-- Benefits Section -->
         <section class="benefits-section">
             <div class="benefits-container">
-                <h2 class="benefits-title" data-i18n="home.benefitsTitle">Mira cómo Nos Fuimos de Finca te puede ayudar</h2>
-                <p class="benefits-subtitle" data-i18n="home.benefitsSubtitle">Conectándote con las experiencias rurales más exclusivas y auténticas en el corazón de Colombia.</p>
-                
+                <div style="display: flex; justify-content: center; width: 100%;">
+                    <p class="benefits-label line-label">CONFIANZA Y RESPALDO</p>
+                </div>
+                <h2 class="benefits-title">¿Por qué reservar con Nos Fuimos de Finca?</h2>
+                <p class="benefits-subtitle">Nos encargamos de cada detalle para que tú solo te preocupes por descansar.</p>
+
                 <div class="benefits-grid">
                     <div class="benefit-card">
                         <div class="benefit-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2a4d35"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="m9 12 2 2 4-4" />
+                            </svg>
                         </div>
-                        <h3 class="benefit-title" data-i18n="home.benefit1Title">Todas las propiedades</h3>
-                        <p class="benefit-desc" data-i18n="home.benefit1Desc">Con acceso a las mejores fincas en las regiones más exclusivas de Colombia, cubrimos el 97% de la oferta rural del país.</p>
+                        <h3 class="benefit-title">Fincas verificadas</h3>
+                        <p class="benefit-desc">Visitamos y verificamos cada propiedad antes de publicarla. Lo que ves es lo que encuentras.</p>
                     </div>
-                    
+
                     <div class="benefit-card">
                         <div class="benefit-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2a4d35"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 16v-8"/>
+                                <path d="M9.5 10a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0Z"/>
+                                <path d="M9.5 14a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0Z"/>
+                            </svg>
                         </div>
-                        <h3 class="benefit-title" data-i18n="home.benefit2Title">Búsqueda exacta</h3>
-                        <p class="benefit-desc" data-i18n="home.benefit2Desc">Nuestros filtros avanzados te permiten encontrar la finca con las amenidades específicas que buscas en tiempo récord.</p>
+                        <h3 class="benefit-title">Mejor precio garantizado</h3>
+                        <p class="benefit-desc">Reservas directas con los dueños, sin comisiones ocultas ni cargos sorpresa.</p>
                     </div>
-                    
+
                     <div class="benefit-card">
                         <div class="benefit-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2a4d35"
+                                stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
                         </div>
-                        <h3 class="benefit-title" data-i18n="home.benefit3Title">Asesoría Premium</h3>
-                        <p class="benefit-desc" data-i18n="home.benefit3Desc">Diseñamos herramientas para que tomes la mejor decisión basada en calidad, precio y experiencias reales.</p>
+                        <h3 class="benefit-title">Atención 24/7</h3>
+                        <p class="benefit-desc">Acompañamiento antes, durante y después de tu estadía, todos los días del año.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2a4d35"
+                                stroke-width="2">
+                                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                <path d="m9 15 6 4"/>
+                                <path d="m15 15-6 4"/>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Cancelación flexible</h3>
+                        <p class="benefit-desc">Cambia o cancela tu reserva hasta 7 días antes de la llegada sin penalidad.</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="testimonials-container">
+                <div style="display: flex; justify-content: center; width: 100%;">
+                    <p class="testimonials-label line-label">LO QUE DICEN NUESTROS HUÉSPEDES</p>
+                </div>
+                <h2 class="testimonials-title">Testimonios</h2>
+                
+                <div class="testimonial-content">
+                    <div class="quote-mark">“</div>
+                    <p class="testimonial-text">"Celebramos el aniversario de mis padres en la Hacienda Santa Clara y fue mágico. El patio colonial es aún más hermoso que en las fotos."</p>
+                    
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CV</div>
+                        <div class="author-info">
+                            <strong>Camila Vargas</strong>
+                            <span>Cali • Evento privado</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-controls">
+                        <button class="nav-btn prev-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+                        </button>
+                        <div class="dots">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot active"></span>
+                        </div>
+                        <button class="nav-btn next-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publish Section -->
+        <section class="publish-section">
+            <div class="publish-overlay"></div>
+            <div class="publish-container">
+                <h2 class="publish-title">¿Tienes una finca y quieres publicarla?</h2>
+                <p class="publish-subtitle">Únete a nuestra red de propietarios y empieza a recibir reservas desde el primer mes.</p>
+                <div class="publish-actions">
+                    <button class="btn-primary">Publicar mi finca</button>
+                    <button class="btn-outline">Ver fincas disponibles</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Scroll to Top Button -->
+        <button class="scroll-to-top" id="scrollToTopBtn" aria-label="Volver arriba">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+        </button>
+
     </main>
 
+    <!-- Footer Component -->
     <global-footer></global-footer>
 </body>
+
 </html>

@@ -57,15 +57,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Lógica básica para contadores de huéspedes (visual)
+    // Lógica básica para contadores de huéspedes
     const btnMinus = document.querySelectorAll('.btn-minus');
     const btnPlus = document.querySelectorAll('.btn-plus');
+    const guestsDisplay = document.getElementById('guests-display');
+    
+    const updateGuestsDisplay = () => {
+        if (!guestsDisplay) return;
+        const adults = parseInt(document.querySelector('.count-adults').textContent) || 0;
+        const children = parseInt(document.querySelector('.count-children').textContent) || 0;
+        const total = adults + children;
+        guestsDisplay.value = `${total} Huésped${total !== 1 ? 'es' : ''} ⌄`;
+    };
 
     btnPlus.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation(); // Prevenir que el dropdown se cierre
             const span = btn.previousElementSibling;
             span.textContent = parseInt(span.textContent) + 1;
+            updateGuestsDisplay();
         });
     });
 
@@ -76,9 +86,25 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentVal = parseInt(span.textContent);
             if (currentVal > 0) {
                 span.textContent = currentVal - 1;
+                updateGuestsDisplay();
             }
         });
     });
+
+    // Vincular salida-field para que abra el calendario de llegada
+    const salidaField = document.getElementById('salida-field');
+    const llegadaField = document.querySelector('[data-dropdown="dates-dropdown"]');
+    if (salidaField && llegadaField) {
+        salidaField.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!llegadaField.classList.contains('active')) {
+                closeAllDropdowns();
+                llegadaField.classList.add('active');
+            } else {
+                closeAllDropdowns();
+            }
+        });
+    }
     
     // Lógica básica para seleccionar ubicaciones
     const locationItems = document.querySelectorAll('#location-dropdown .dropdown-list li');
@@ -127,7 +153,8 @@ document.addEventListener('DOMContentLoaded', () => {
     /* =========================================
        FLATPICKR CALENDAR LOGIC
     ========================================= */
-    const dateDisplay = document.getElementById('date-display');
+    const dateDisplayIn = document.getElementById('date-display-in');
+    const dateDisplayOut = document.getElementById('date-display-out');
     const dateDropdown = document.getElementById('dates-dropdown');
 
     if (document.getElementById('date-picker-inline')) {
@@ -145,7 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     const localeCode = currentLang === 'en' ? 'en-US' : 'es-ES';
                     const start = selectedDates[0].toLocaleDateString(localeCode, { day: 'numeric', month: 'short' });
                     const end = selectedDates[1].toLocaleDateString(localeCode, { day: 'numeric', month: 'short' });
-                    dateDisplay.value = `${start} - ${end}`;
+                    if (dateDisplayIn) dateDisplayIn.value = start;
+                    if (dateDisplayOut) dateDisplayOut.value = end;
                     
                     // Pequeño delay antes de cerrar el dropdown para dar feedback visual
                     setTimeout(() => {
@@ -154,9 +182,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else if (selectedDates.length === 1) {
                     const localeCode = currentLang === 'en' ? 'en-US' : 'es-ES';
                     const start = selectedDates[0].toLocaleDateString(localeCode, { day: 'numeric', month: 'short' });
-                    dateDisplay.value = `${start} - ...`;
+                    if (dateDisplayIn) dateDisplayIn.value = start;
+                    if (dateDisplayOut) dateDisplayOut.value = '';
                 }
             }
+        });
+    }
+
+    /* =========================================
+       SCROLL TO TOP LOGIC
+    ========================================= */
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    if (scrollToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     }
 });

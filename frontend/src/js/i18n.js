@@ -10,7 +10,7 @@ const translations = {
             register: "Registrarse"
         },
         home: {
-            heroTitle: "Descubre el verdadero espíritu<br>de Colombia en lujo rústico",
+            heroTitle: "Tu escapada perfecta <i style='font-style: italic; font-family: Playfair Display, serif;'>al campo</i> comienza aquí",
             searchLocationLabel: "UBICACIÓN",
             searchLocationPlaceholder: "¿A dónde vas?",
             searchDatesLabel: "FECHAS",
@@ -64,7 +64,7 @@ const translations = {
             register: "Sign Up"
         },
         home: {
-            heroTitle: "Discover the true spirit<br>of Colombia in rustic luxury",
+            heroTitle: "Your perfect getaway <i style='font-style: italic; font-family: Playfair Display, serif;'>to the countryside</i> starts here",
             searchLocationLabel: "LOCATION",
             searchLocationPlaceholder: "Where are you going?",
             searchDatesLabel: "DATES",
